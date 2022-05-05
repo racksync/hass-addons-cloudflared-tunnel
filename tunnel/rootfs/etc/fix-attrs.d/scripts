@@ -1,4 +1,1 @@
-/usr/bin/cloudflared-armv7 false root 0755 0755
-/usr/bin/cloudflared-aarch64 false root 0755 0755
-/usr/bin/cloudflared-i386 false root 0755 0755
-/usr/bin/cloudflared-amd64 false root 0755 0755
+/usr/bin/cloudflared false root 0755 0755
