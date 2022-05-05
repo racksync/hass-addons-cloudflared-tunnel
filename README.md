@@ -27,7 +27,7 @@ http:
 6. Restart Home Assistant
 
 
-![racksync-screenshot](https://github.com/racksync/hass-addons-cloudflared-tunnel/blob/master/tunnel/screenshot.png?raw=true)
+![racksync-screenshot](https://github.com/racksync/hass-addons-cloudflared-tunnel/blob/main/tunnel/screenshot.png?raw=true)
 
 
 ## หากพบปัญหาในการใช้งาน กรุณาส่งเข้า issue
