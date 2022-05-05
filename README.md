@@ -44,8 +44,9 @@ http:
 
 ### เพิ่มเติม
 
-- [X] Add Alternative (Secondary Tunnel)
-- [X] Add Note Input Field 
+- [ ] Add Alternative (Secondary Tunnel)
+- [ ] Switch out from Legacy mode
+- [ ] Add Note Input Field 
 - [X] Re-factor Slug URL
 - [X] Fix a tiny container bug :tada:
 
