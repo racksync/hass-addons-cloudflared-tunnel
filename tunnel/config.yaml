@@ -4,6 +4,8 @@ name: Cloudflared Argo Tunnel
 description: Cloudflare Argo Tunnel from RACKSYNC.COM
 url: https://github.com/racksync/hass-addons-cloudflared-tunnel
 codenotary: jack@racksync.com
+ingress: true
+panel_icon: mdi:wrench
 arch:
   - armhf
   - armv7
