@@ -1,10 +1,10 @@
 # Home Assistant Cloudflared Argo Tunnel
 
-## ข้อควรทราบ ###
+## Disclaimer ###
 
 addon ตัวนี้เหมาะสำหรับคนที่มี domain บนระบบ cloudflare อยู่แล้ว ทำการ generated cert ผ่านขั้นตอน [authen](https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/install-and-setup/tunnel-guide) ก็สามารถ add hostname จาก addon ได้เลยโดยไม่ต้องมานั่ง add บนระบบหลังบ้านของ cloudflare ทีละตัว หากยังไม่มี hostname/domain และต้องการทดสอบ สามารถขอไฟล์ .pem เพื่อทดสอบได้ กรณีต้องการใช้ .com ที่เป็นโดเมนของตัวเอง เรามีให้บริการจดโดเมน 450 บาท/ปี ใช้ sub domain ได้ไม่จำกัด ติดต่อ info@racksync.com
 
-## วิธีใช้ 
+## How to Install
 
 1. ติดตั้ง addon ด้วยการ add repository : https://github.com/racksync/hass-addons-cloudflared-tunnel เข้าไปยัง addon list ตามปกติ
 2. จะมี addon เพิ่มมาจำนวน 2 ตัว สามารถใช้ทั้งคู่เพื่อเข้าใช้งานจากภายนอกได้พร้อมกัน เช่น Primary สำหรับเข้า Home Assistant และ Secondary สำหรับเข้า service อื่น ๆ ที่รันบน http เช่น tasmota
@@ -30,19 +30,18 @@ http:
 ![racksync-screenshot](https://github.com/racksync/hass-addons-cloudflared-tunnel/blob/main/tunnel/screenshot.png?raw=true)
 
 
-## หากพบปัญหาในการใช้งาน กรุณาส่งเข้า issue
 
-### บริการและเทรนนิ่งคอร์สด้าน Automation 
+### Automation Training
 
 - [สินค้าและบริการ](http://racksync.com)
 - [เทรนนิ่งคอร์ส](https://facebook.com/racksync)
 
-### ชุมชนและแหล่งซื้อขาย Home Automation
+### Community
 
 - [Home Automation Thailand](https://www.facebook.com/groups/hathailand)
 - [Home Automation Marketplace](https://www.facebook.com/groups/hatmarketplace)
 
-### เพิ่มเติม
+### More
 
 - [ ] Add Alternative (Secondary Tunnel)
 - [ ] Switch out from Legacy mode
