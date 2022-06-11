@@ -1,4 +1,4 @@
-version: 2022.05.04
+version: 2022.06.12
 slug: racksync-argo-cloudflare
 name: Cloudflared Argo Tunnel
 description: Cloudflare Argo Tunnel from RACKSYNC.COM
