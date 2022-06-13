@@ -27,7 +27,7 @@ RUN set -x \
         echo 'NOT INVALID ARCH'; exit 1; \
 	fi \
     && mv cloudflared /usr/bin/cloudflared \
-    && chmod a+x /usr/bin/cloudflared
+    && chmod 755 /usr/bin/cloudflared
 
 COPY rootfs /
 
