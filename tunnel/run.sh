@@ -3,7 +3,6 @@ set -e
 
 # https://github.com/hassio-addons/bashio
 
-
 #!/usr/bin/env bashio
 set +u
 
@@ -13,11 +12,8 @@ CONFIG_PATH=/data/options.json
 HOST=$(jq --raw-output ".host" $CONFIG_PATH)
 URL=$(jq --raw-output ".url" $CONFIG_PATH)
 
-
 cat $CONFIG_PATH
 # cat $SYSTEM_USER
-
-
 
 # BASE="ssh -o StrictHostKeyChecking=no"
 # TUN="-o ExitOnForwardFailure=yes -o ServerAliveInterval=30 -N"
@@ -64,5 +60,4 @@ bashio::log.info "Config file: \n${configfile}"
 echo "#!/usr/bin/env bashio" > go.sh
 echo cloudflared --no-autoupdate --hostname "$HOST" --url "$URL" >> go.sh
 chmod +x ./go.sh
-
 ./go.sh
