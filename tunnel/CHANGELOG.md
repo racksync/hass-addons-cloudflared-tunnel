@@ -10,4 +10,4 @@
 # 2022.06.14a
 ## Add LTS Tunnel as Minor Release 
 
-- Recomend [LTS] Instead of [Legacy]
+- Recommend [LTS] Instead of [Legacy]
