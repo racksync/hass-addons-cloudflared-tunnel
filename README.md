@@ -6,7 +6,7 @@ addon นี้เหมาะสำหรับคนที่มี domain บ
 
 ## Caution ## 
 
-คำสั่งที่ใช้สำหรับรัน จะรันในโหมด legacy เพื่อลดขั้นตอนการเตรียมไฟล์ ซึ่งหากต้องการรันในโหมด Full สามารถเปลีี่ยนไปใช้ [Cloudflared Argo Tunnel LTS](https://github.com/racksync/hass-addons-cloudflared-tunnel-lts)
+คำสั่งที่ใช้สำหรับรัน จะรันในโหมด legacy เพื่อลดขั้นตอนการเตรียมไฟล์ ซึ่งหากต้องการรันในโหมด Full สามารถสลับไปใช้ [Cloudflared Argo Tunnel LTS](https://github.com/racksync/hass-addons-cloudflared-tunnel-lts)
 
 ## How to Install Add-on
 
