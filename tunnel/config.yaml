@@ -1,6 +1,6 @@
-version: 2022.06.13
-slug: racksync-argo-cloudflare
-name: Cloudflared Argo Tunnel
+version: 2022.06.14
+slug: racksync-argo-cloudflare-legacy
+name: Cloudflared Argo Tunnel (Legacy)
 description: Cloudflare Argo Tunnel from RACKSYNC.COM
 url: https://github.com/racksync/hass-addons-cloudflared-tunnel
 codenotary: jack@racksync.com
