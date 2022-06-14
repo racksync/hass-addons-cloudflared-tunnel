@@ -29,6 +29,10 @@ addon นี้เหมาะสำหรับคนที่มี domain บ
 - [Home Automation Marketplace](https://www.facebook.com/groups/hatmarketplace)
 - [Home Automation Thailand Discord](https://discord.gg/Wc5CwnWkp4)
 
+## RACKSYNC CO., LTD.
+
+บจก.แรคซิงค์ คือผู้เชี่ยวชาญด้าน Automation และ Smart Solutions ทุกขนาด เรามีบริการให้คำปรึกษาตลอดจนวางระบบ ติดตั้งและมอนิเตอร์โดยผู้เชี่ยวชาญ นอกจากนี้เรายังเป็นบริษัทรับพัฒนา Software As A Service แบบครบวงจรอีกด้วย
+
 ### More
 
 - [ ] Add Alternative (Secondary Tunnel)
