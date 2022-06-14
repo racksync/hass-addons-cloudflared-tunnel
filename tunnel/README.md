@@ -1,8 +1,12 @@
-# Home Assistant Cloudflared Argo Tunnel
+# Home Assistant Cloudflared Argo Tunnel - Legacy Mode
 
 ## Disclaimer ###
 
-addon ตัวนี้เหมาะสำหรับคนที่มี domain บนระบบ cloudflare อยู่แล้ว ทำการ generated cert ผ่านขั้นตอน [authen](https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/install-and-setup/tunnel-guide) ก็สามารถ add hostname จาก addon ได้เลยโดยไม่ต้องมานั่ง add บนระบบหลังบ้านของ cloudflare ทีละตัว หากยังไม่มี hostname/domain และต้องการทดสอบ สามารถขอไฟล์ .pem เพื่อทดสอบได้ กรณีต้องการใช้ .com ที่เป็นโดเมนของตัวเอง เรามีให้บริการจดโดเมน 450 บาท/ปี ใช้ sub domain ได้ไม่จำกัด ติดต่อ info@racksync.com
+addon นี้เหมาะสำหรับคนที่มี domain บนระบบ cloudflare อยู่แล้ว ทำการ generated cert ผ่านขั้นตอน [authen](https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/install-and-setup/tunnel-guide) ก็สามารถ add hostname จาก addon ได้เลย (ไม่ต้อง login cloudflared) โดยไม่ต้อง add บนระบบหลังบ้านของ cloudflare ทีละตัว หากยังไม่มี hostname/domain และต้องการทดสอบ สามารถขอไฟล์ .pem เพื่อทดสอบได้ กรณีต้องการใช้ .com ที่เป็นโดเมนของตัวเอง เรามีให้บริการจดโดเมน 450 บาท/ปี ใช้ sub domain ได้ไม่จำกัด ติดต่อ info@racksync.com
+
+## Caution ## 
+
+คำสั่งที่ใช้สำหรับรัน จะรันในโหมด legacy เพื่อลดขั้นตอนการเตรียมไฟล์ ซึ่งหากต้องการรันในโหมด Full สามารถเปลีี่ยนไปใช้ [Cloudflared Argo Tunnel LTS](https://github.com/racksync/hass-addons-cloudflared-tunnel-lts)
 
 ## How to Install Add-on
 
@@ -44,7 +48,7 @@ http:
 ### More
 
 - [ ] Add Alternative (Secondary Tunnel)
-- [ ] Switch out from Legacy mode
+- [X] Deprecated Legacy mode
 - [X] Add Note Input Field 
 - [X] Re-factor Slug URL
 - [X] Fix a tiny container bug :tada:
