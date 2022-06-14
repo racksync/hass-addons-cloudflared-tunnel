@@ -11,17 +11,19 @@ CONFIG_PATH=/data/options.json
 
 HOST=$(jq --raw-output ".host" $CONFIG_PATH)
 URL=$(jq --raw-output ".url" $CONFIG_PATH)
-PEM=$(jq --raw-output ".pem" $CONFIG_PATH)
-CREDENTIALS=$(jq --raw-output ".credentials" $CONFIG_PATH)
 
 cat $CONFIG_PATH
 # cat $SYSTEM_USER
 
+# BASE="ssh -o StrictHostKeyChecking=no"
+# TUN="-o ExitOnForwardFailure=yes -o ServerAliveInterval=30 -N"
+
 configPath="/root/.cloudflared/config.yml"
 mkdir -p /root/.cloudflared
 
+PEM=$(jq --raw-output ".pem" $CONFIG_PATH)
+
 cp -Rv /ssl/$PEM /root/.cloudflared/cert.pem
-cp -Rv /ssl/${CREDENTIALS} /root/.cloudflared/
 
 # echo $PEM >> /root/.cloudflared/cert.pem
 # echo "log: stdout" > $configPath
@@ -41,8 +43,6 @@ if bashio::var.has_value "$(bashio::config 'pem')"; then
   echo "$(bashio::config 'pem')" >> /root/.cloudflared/cert.pem
 fi
 
-
-
 # if bashio::var.has_value "$(bashio::config 'auth_token')"; then
 #   echo "authtoken: $(bashio::config 'auth_token')" >> $configPath
 # fi
@@ -55,8 +55,9 @@ fi
 configfile=$(cat $configPath)
 bashio::log.info "Config file: \n${configfile}"
 # bashio::log.info "Config :file \n${cat /root/.cloudflared/cert.pem}"
+# cloudflared --url localhost:8123
 
 echo "#!/usr/bin/env bashio" > go.sh
-echo cloudflared -f --name homeassistant --credentials-file /root/.cloudflared/"$CREDENTIALS" --no-autoupdate --hostname "$HOST" --url "$URL" >> go.sh
+echo cloudflared --no-autoupdate --hostname "$HOST" --url "$URL" >> go.sh
 chmod +x ./go.sh
 ./go.sh

@@ -1,6 +1,6 @@
 version: 2022.06.14
-slug: racksync-cloudflare-tunnel
-name: Cloudflared Argo Tunnel
+slug: racksync-cloudflare-tunnel-legacy
+name: Cloudflared Argo Tunnel (Legacy)
 description: Cloudflare Argo Tunnel from RACKSYNC.COM
 url: https://github.com/racksync/hass-addons-cloudflared-tunnel
 codenotary: devops@racksync.com
@@ -24,12 +24,10 @@ map:
 options:
   pem: "cert.pem"
   host: ""
-  credentials: "cred.json"
   url: "127.0.0.1:8123"
   desc: ""
 schema:
   pem: str
   host: str
-  credentials: str
   url: str
   desc: str?
