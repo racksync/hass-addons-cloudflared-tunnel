@@ -13,7 +13,9 @@
 
 addon ตัวนี้เหมาะสำหรับคนที่มีเชี่ยวชาญการทำ tunnel เดิม หรือเคยใช้ [legacy addons](https://github.com/racksync/hass-addons-cloudflared-tunnel) มาก่อน ซึ่งอาจจะมี domain บน cloudflare อยู่แล้ว ทำ tunnel login ผ่านขั้นตอน [authen](https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/install-and-setup/tunnel-guide) ก็สามารถ add hostname จาก addon ได้เลยโดยไม่ต้องมานั่ง add บนระบบหลังบ้านของ cloudflare ทีละตัว ทั้งนี้เรามีให้บริการจดโดเมน 450 บาท/ปี ใช้ Hostname บน Home Assistant ได้ไม่จำกัด ติดต่อ info@racksync.com
 
+## How to Install & Setup
 
+อ่านคู่มือและวิธีการแบบละเอียดผ่าน Document Tab ของ Add-on
 
 ### Automation Training
 
