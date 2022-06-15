@@ -1,5 +1,8 @@
 # Home Assistant Cloudflared Argo Tunnel 
 
+[![Base Image](https://img.shields.io/badge/Base%20Image-3.15-blue)](https://github.com/home-assistant/docker-base) 
+[![Base Image](https://img.shields.io/badge/Base%20Image-3.15-blue)](https://github.com/home-assistant/docker-base)
+
 ## Disclaimer ###
 
 addon นี้เหมาะสำหรับคนที่มี domain บนระบบ cloudflare อยู่แล้ว ซึ่งได้ผ่านขั้นตอน [authen](https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/install-and-setup/tunnel-guide) โดยสามารถ add hostname จาก addon ได้เลย (ไม่ต้อง login cloudflared) โดยไม่ต้อง add บนระบบหลังบ้านของ cloudflare ทีละตัว หากยังไม่มี hostname/domain และต้องการทดสอบ สามารถขอไฟล์ .pem เพื่อทดสอบได้ กรณีต้องการใช้ .com ที่เป็นโดเมนของตัวเอง เรามีให้บริการจดโดเมน 450 บาท/ปี ใช้ sub domain ได้ไม่จำกัด ติดต่อ info@racksync.com
@@ -7,7 +10,7 @@ addon นี้เหมาะสำหรับคนที่มี domain บ
 ## Version ## 
 
 - Legacy สำหรับการรันในรูปแบบเก่า 
-- LTS / Long Term Support (สำหรับคนที่เข้าใจกระบวนการรัน tunnel อยู่แล้ว)
+- LTS / Long Term Support (สำหรับคนที่เข้าใจกระบวนการรัน tunnel ทั้งกระบวนการ generate cert อยู่แล้ว)
 
 ## How to Install Add-on
 
