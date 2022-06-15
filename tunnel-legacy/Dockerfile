@@ -24,7 +24,7 @@ RUN set -x \
     then \
 	    wget -O cloudflared https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-386; \
     else \
-        echo 'NOT INVALID ARCH'; exit 1; \
+        echo 'INVALID ARCHITECTURE'; exit 1; \
 	fi \
     && mv cloudflared /usr/bin/cloudflared \
     && chmod 755 /usr/bin/cloudflared
