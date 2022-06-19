@@ -45,6 +45,7 @@ http:
 ### More
 
 - [ ] Add Alternative (Secondary Tunnel)
+- [X] Zero Trust Support
 - [X] Switch out from Legacy mode
 - [X] Add Note Input Field 
 - [X] Re-factor Slug URL

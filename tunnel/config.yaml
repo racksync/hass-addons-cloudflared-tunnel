@@ -26,10 +26,12 @@ options:
   host: ""
   credentials: "cred.json"
   url: "127.0.0.1:8123"
-  desc: ""
+  description: ""
+  no_autoupdate: false
 schema:
   pem: str
   host: str
   credentials: str
   url: str
-  desc: str?
+  description: str?
+  no_autoupdate: bool

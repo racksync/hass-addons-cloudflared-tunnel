@@ -57,6 +57,12 @@ bashio::log.info "Config file: \n${configfile}"
 # bashio::log.info "Config :file \n${cat /root/.cloudflared/cert.pem}"
 
 echo "#!/usr/bin/env bashio" > go.sh
-echo cloudflared -f --name homeassistant --credentials-file /root/.cloudflared/"$CREDENTIALS" --no-autoupdate --hostname "$HOST" --url "$URL" >> go.sh
+
+if bashio::config.true 'no_autoupdate'; then
+    echo cloudflared -f --name homeassistant --no-autoupdate --credentials-file /root/.cloudflared/"$CREDENTIALS" --hostname "$HOST" --url "$URL" >> go.sh
+else
+    echo cloudflared -f --name homeassistant --credentials-file /root/.cloudflared/"$CREDENTIALS" --hostname "$HOST" --url "$URL" >> go.sh
+fi
+
 chmod +x ./go.sh
 ./go.sh

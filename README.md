@@ -14,7 +14,7 @@ addon นี้เหมาะสำหรับคนที่มี domain บ
 ## Version ## 
 
 - Legacy สำหรับการรันในรูปแบบเก่า 
-- LTS / Long Term Support (สำหรับคนที่เข้าใจกระบวนการรัน tunnel ทั้งกระบวนการ generate cert อยู่แล้ว)
+- LTS / Long Term Support (สำหรับคนที่เข้าใจกระบวนการรัน tunnel ทั้งกระบวนการ generate cert อยู่แล้ว) ตัวนี้รองรับ Zero Trust
 
 ## How to Install Add-on
 
@@ -28,6 +28,7 @@ addon นี้เหมาะสำหรับคนที่มี domain บ
 ### More
 
 - [ ] Add Alternative (Secondary Tunnel)
+- [X] Zero Trust Support
 - [X] Deprecated Legacy mode
 - [X] Add Note Input Field 
 - [X] Re-factor Slug URL
