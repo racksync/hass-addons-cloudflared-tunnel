@@ -27,6 +27,7 @@ options:
   credentials: "cred.json"
   url: "127.0.0.1:8123"
   description: ""
+  flag: ""
   no_autoupdate: false
 schema:
   pem: str
@@ -34,4 +35,5 @@ schema:
   credentials: str
   url: str
   description: str?
+  flag: str?
   no_autoupdate: bool

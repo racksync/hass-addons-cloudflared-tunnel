@@ -12,6 +12,7 @@ CONFIG_PATH=/data/options.json
 HOST=$(jq --raw-output ".host" $CONFIG_PATH)
 URL=$(jq --raw-output ".url" $CONFIG_PATH)
 PEM=$(jq --raw-output ".pem" $CONFIG_PATH)
+FLAG=$(jq --raw-output ".flag" $CONFIG_PATH)
 CREDENTIALS=$(jq --raw-output ".credentials" $CONFIG_PATH)
 
 cat $CONFIG_PATH
@@ -37,6 +38,10 @@ if bashio::var.has_value "$(bashio::config 'url')"; then
   echo "url: $(bashio::config 'url')" >> $configPath
 fi
 
+if bashio::var.has_value "$(bashio::config 'flag')"; then
+  echo "flag: $(bashio::config 'flag')" >> $configPath
+fi
+
 if bashio::var.has_value "$(bashio::config 'pem')"; then
   echo "$(bashio::config 'pem')" >> /root/.cloudflared/cert.pem
 fi
@@ -59,9 +64,9 @@ bashio::log.info "Config file: \n${configfile}"
 echo "#!/usr/bin/env bashio" > go.sh
 
 if bashio::config.true 'no_autoupdate'; then
-    echo cloudflared -f --name homeassistant --no-autoupdate --credentials-file /root/.cloudflared/"$CREDENTIALS" --hostname "$HOST" --url "$URL" >> go.sh
+    echo cloudflared --name homeassistant --no-autoupdate $FLAG --credentials-file /root/.cloudflared/"$CREDENTIALS" --hostname "$HOST" --url "$URL" >> go.sh
 else
-    echo cloudflared -f --name homeassistant --credentials-file /root/.cloudflared/"$CREDENTIALS" --hostname "$HOST" --url "$URL" >> go.sh
+    echo cloudflared --name homeassistant $FLAG --credentials-file /root/.cloudflared/"$CREDENTIALS" --hostname "$HOST" --url "$URL" >> go.sh
 fi
 
 chmod +x ./go.sh
