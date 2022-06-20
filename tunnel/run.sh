@@ -22,8 +22,8 @@ configPath="/root/.cloudflared/config.yml"
 mkdir -p /root/.cloudflared/
 cp -Rv /ssl/$PEM /root/.cloudflared/cert.pem 
 cp -Rv /ssl/$CREDENTIALS /root/.cloudflared/$CREDENTIALS
-chmod 755 -R /root/.cloudflared/cert.pem 
-chmod 755 -R /root/.cloudflared/$CREDENTIALS
+chmod 775 -R /root/.cloudflared/cert.pem 
+chmod 775 -R /root/.cloudflared/$CREDENTIALS
 
 # echo $PEM >> /root/.cloudflared/cert.pem
 # echo "log: stdout" > $configPath
