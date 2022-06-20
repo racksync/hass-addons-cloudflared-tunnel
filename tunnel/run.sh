@@ -21,7 +21,6 @@ cat $CONFIG_PATH
 configPath="/root/.cloudflared/config.yml"
 mkdir -p /root/.cloudflared
 
-rm -rf /root/.cloudflared/*
 cp -Rv /ssl/$PEM /root/.cloudflared/cert.pem
 cp -Rv /ssl/${CREDENTIALS} /root/.cloudflared/
 
@@ -65,9 +64,9 @@ bashio::log.info "Config file: \n${configfile}"
 echo "#!/usr/bin/env bashio" > go.sh
 
 if bashio::config.true 'no_autoupdate'; then
-    echo cloudflared --name homeassistant --no-autoupdate $FLAG --credentials-file /root/.cloudflared/"$CREDENTIALS" --hostname "$HOST" --url "$URL" >> go.sh
+    echo cloudflared --name "$HOST" --no-autoupdate $FLAG --credentials-file /root/.cloudflared/"$CREDENTIALS" --hostname "$HOST" --url "$URL" >> go.sh
 else
-    echo cloudflared --name homeassistant $FLAG --credentials-file /root/.cloudflared/"$CREDENTIALS" --hostname "$HOST" --url "$URL" >> go.sh
+    echo cloudflared --name "$HOST" $FLAG --credentials-file /root/.cloudflared/"$CREDENTIALS" --hostname "$HOST" --url "$URL" >> go.sh
 fi
 
 chmod +x ./go.sh
