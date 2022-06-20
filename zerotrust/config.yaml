@@ -1,0 +1,29 @@
+version: 2022.06.21
+slug: racksync-cloudflare-tunnel-zerotrust
+name: Cloudflare Tunnel (Zero Trust)
+description: Cloudflare Tunnel from RACKSYNC.COM 
+url: https://github.com/racksync/hass-addons-cloudflared-tunnel
+codenotary: devops@racksync.com
+ingress: false
+init: false
+arch:
+  - armhf
+  - armv7
+  - aarch64
+  - amd64
+  - i386
+startup: system
+hassio_api: false
+boot: auto
+host_network: true
+apparmor: false
+host_pid: true
+map: 
+  - config:ro
+  - ssl:ro
+options:
+  token: ""
+  description: ""
+schema:
+  token: str
+  description: str?
