@@ -21,6 +21,7 @@ cat $CONFIG_PATH
 configPath="/root/.cloudflared/config.yml"
 mkdir -p /root/.cloudflared
 
+rm -rf /root/.cloudflared/*
 cp -Rv /ssl/$PEM /root/.cloudflared/cert.pem
 cp -Rv /ssl/${CREDENTIALS} /root/.cloudflared/
 
