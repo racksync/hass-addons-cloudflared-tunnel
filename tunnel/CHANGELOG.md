@@ -11,3 +11,15 @@
 ## Add LTS Tunnel as Minor Release 
 
 - Recommend [LTS] Instead of [Legacy]
+
+# 2022.06.19
+## Configurable Options
+
+- add "--no-autoupdate" option
+- customizable additional flag
+
+# 2022.06.21 
+## More Options
+
+  - Additional argument with "flag"
+  - Legacy Option
