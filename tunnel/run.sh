@@ -1,3 +1,6 @@
+#!/usr/bin/env bashio
+set -e
+
 # https://github.com/hassio-addons/bashio
 
 #!/usr/bin/env bashio
