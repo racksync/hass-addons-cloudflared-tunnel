@@ -48,9 +48,9 @@ if bashio::var.has_value "$(bashio::config 'pem')"; then
 fi
 
 if bashio::config.true 'legacy'; then
-  LEGACY="--name ${HOST}"
-else
   LEGACY=" "
+else
+  LEGACY="--name ${HOST}"
 fi
 
 # if bashio::var.has_value "$(bashio::config 'auth_token')"; then
