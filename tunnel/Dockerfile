@@ -6,7 +6,9 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 ARG BUILD_ARCH
 env BUILD_ARCH $BUILD_ARCH
 
-RUN apk add --no-cache openssh file libc6-compat
+RUN sysctl -w net.core.rmem_max=2500000
+
+RUN apk add --no-cache openssh file libc6-compat vim
 RUN set -x \
     && if [ "${BUILD_ARCH}" = "armhf" ]; \
         then \
