@@ -1,4 +1,4 @@
-# Home Assistant Cloudflared Argo Tunnel - Long Term Support (LTS)
+# Home Assistant Cloudflare Tunnel - Standard
 
 ## Disclaimer ###
 
@@ -6,13 +6,13 @@ addon ตัวนี้เหมาะสำหรับคนที่มี�
 
 ## How to Install Add-on
 
-1. ติดตั้ง addon ด้วยการ add repository : https://github.com/racksync/hass-addons-cloudflared-tunnel-lts เข้าไปยัง addon list ตามปกติ
+1. ติดตั้ง addon ด้วยการ add repository : https://github.com/racksync/hass-addons-cloudflared-tunnel เข้าไปยัง addon list ตามปกติ
 2. จะมี addon เพิ่มมาจำนวน 2 ตัว สามารถใช้ทั้งคู่เพื่อเข้าใช้งานจากภายนอกได้พร้อมกัน เช่น Primary สำหรับเข้า Home Assistant และ Secondary สำหรับเข้า service อื่น ๆ ที่รันบน http เช่น tasmota
 3. cloudflare login เพื่อสร้างไฟล์ cert ด้วยคำสั่ง ```$ cloudflared tunnel login``` 
 [ดูขั้นตอน](https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/install-and-setup/tunnel-guide)
 4. Copy .pem และ .json ที่ได้จากขั้นตอนก่อนหน้า (สำหรับคนที่ใช้ Linux/WSL จะอยู่ที่ ~/.cloudflared) ให้ Copy ไปไว้ใน Directory : ssl ชั้นนอกสุดของ Home Assistant (เข้าผ่านทาง samba share หรือ secure shell)
 5. เข้าไปตั้งค่า addon กรอกชื่อไฟล์ไฟล์ .pem และ .json และกรอกชื่อ hostname ที่ต้องการ (เช่น hass.yourdomain.com)
-6. เพิ่ม config ที่ configuration.yaml
+6. ตั้งค่า configuration.yaml จากนั้น Restart Home Assistant
 
 ```
 http:
@@ -24,7 +24,8 @@ http:
     - ::1
 ```
 
-6. Restart Home Assistant
+7. Restart Home Assistant
+
 
 
 ![racksync-screenshot](https://github.com/racksync/hass-addons-cloudflared-tunnel/blob/main/tunnel/screenshot.png?raw=true)

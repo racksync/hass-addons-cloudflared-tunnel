@@ -23,3 +23,4 @@
 
   - Additional argument with "flag"
   - Legacy Option
+  - net.core.rmem_max = 2500000

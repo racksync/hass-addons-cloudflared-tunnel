@@ -3,8 +3,6 @@ FROM $BUILD_FROM
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
-
-
 ARG BUILD_ARCH
 env BUILD_ARCH $BUILD_ARCH
 

@@ -28,7 +28,7 @@ addon ตัวนี้เหมาะสำหรับคนที่มี�
 
 ### More
 
-- [ ] Add Alternative (Secondary Tunnel)
+- [X] Legacy as Optional
 - [X] Zero Trust Support
 - [X] Switch out from Legacy mode
 - [X] Add Note Input Field 

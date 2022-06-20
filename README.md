@@ -13,13 +13,13 @@ addon นี้เหมาะสำหรับคนที่มี domain บ
 
 ## Version ## 
 
-- Legacy สำหรับการรันในรูปแบบเก่า 
-- LTS / Long Term Support (สำหรับคนที่เข้าใจกระบวนการรัน tunnel ทั้งกระบวนการ generate cert อยู่แล้ว) ตัวนี้รองรับ Zero Trust
+- Standard แบบปกติที่รันกันทั่ว ๆ ไป (Migrate เป็น Zero Trust ได้)
+- [Zero Trust](https://www.cloudflare.com/products/zero-trust/) 
 
 ## How to Install Add-on
 
 1. ติดตั้ง addon ด้วยการ add repository : https://github.com/racksync/hass-addons-cloudflared-tunnel เข้าไปยัง addon list ตามปกติ
-2. จะมี addon เพิ่มมาจำนวน 2 ตัว สามารถเลือกใช้ตัวใดตัวหนึ่งตามความถนัดได้เลย (มือใหม่แนะนำรันในโหมด Legacy โดยทั้งสองโหมดจะมีคำอธิบายแบบละเอียดอีกทีด้านใน)
+2. จะมี addon เพิ่มมาจำนวน 2 ตัว สามารถเลือกใช้ตัวใดตัวหนึ่งตามความถนัดได้เลย (มือใหม่แนะนำรันในโหมด Standard โดยทั้งสองโหมดจะมีคำอธิบายแบบละเอียดอีกทีด้านใน)
 3. ศึกษาวิธีการโดยละเอียดของแต่ละโหมดได้จากหน้า Documentation หลักของ Add-on แต่ละโหมด
 
 
