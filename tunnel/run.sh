@@ -50,7 +50,7 @@ fi
 if bashio::config.true 'legacy'; then
   LEGACY="--name ${HOST}"
 else
-  LEGACY=""
+  LEGACY=" "
 fi
 
 # if bashio::var.has_value "$(bashio::config 'auth_token')"; then
