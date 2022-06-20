@@ -15,6 +15,7 @@ PEM=$(jq --raw-output ".pem" $CONFIG_PATH)
 FLAG=$(jq --raw-output ".flag" $CONFIG_PATH)
 CREDENTIALS=$(jq --raw-output ".credentials" $CONFIG_PATH)
 
+
 cat $CONFIG_PATH
 # cat $SYSTEM_USER
 
@@ -22,12 +23,11 @@ configPath="/root/.cloudflared/config.yml"
 mkdir -p /root/.cloudflared/
 cp -Rv /ssl/$PEM /root/.cloudflared/cert.pem 
 cp -Rv /ssl/$CREDENTIALS /root/.cloudflared/$CREDENTIALS
-chmod 775 -R /root/.cloudflared/cert.pem 
-chmod 775 -R /root/.cloudflared/$CREDENTIALS
+
 
 # echo $PEM >> /root/.cloudflared/cert.pem
 # echo "log: stdout" > $configPath
-bashio::log.info "Bashio log!"
+bashio::log.info "Bashio!"
 # if bashio::var.has_value "$(bashio::addon.port 4040)"; then
 #   echo "web_addr: 0.0.0.0:$(bashio::addon.port 4040)" >> $configPath
 # fi
@@ -47,7 +47,11 @@ if bashio::var.has_value "$(bashio::config 'pem')"; then
   echo "$(bashio::config 'pem')" >> /root/.cloudflared/cert.pem
 fi
 
-
+if bashio::config.true 'legacy'; then
+  LEGACY="--name ${HOST}"
+else
+  LEGACY=""
+fi
 
 # if bashio::var.has_value "$(bashio::config 'auth_token')"; then
 #   echo "authtoken: $(bashio::config 'auth_token')" >> $configPath
@@ -59,16 +63,15 @@ fi
 # fi
 # cat $configPath
 configfile=$(cat $configPath)
-bashio::log.info "Config file: \n${configfile}"
+bashio::log.info "Configure: \n${configfile}"
 # bashio::log.info "Config :file \n${cat /root/.cloudflared/cert.pem}"
 
 echo "#!/usr/bin/env bashio" > go.sh
 
 if bashio::config.true 'no_autoupdate'; then
-    echo cloudflared --name "$HOST" --no-autoupdate $FLAG --credentials-file /root/.cloudflared/"$CREDENTIALS" --hostname "$HOST" --url "$URL" >> go.sh
+    echo cloudflared $LEGACY --no-autoupdate $FLAG --credentials-file /root/.cloudflared/"$CREDENTIALS" --hostname "$HOST" --url "$URL" >> go.sh
 else
-    echo cloudflared --name "$HOST" $FLAG --credentials-file /root/.cloudflared/"$CREDENTIALS" --hostname "$HOST" --url "$URL" >> go.sh
+    echo cloudflared $LEGACY $FLAG --credentials-file /root/.cloudflared/"$CREDENTIALS" --hostname "$HOST" --url "$URL" >> go.sh
 fi
-
 chmod +x ./go.sh
 ./go.sh

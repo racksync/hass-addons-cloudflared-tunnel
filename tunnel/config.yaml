@@ -29,6 +29,7 @@ options:
   description: ""
   flag: ""
   no_autoupdate: false
+  legacy: false
 schema:
   pem: str
   host: str
@@ -37,3 +38,4 @@ schema:
   description: str?
   flag: str?
   no_autoupdate: bool
+  legacy: bool
