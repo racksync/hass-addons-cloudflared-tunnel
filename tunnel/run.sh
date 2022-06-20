@@ -1,4 +1,4 @@
-#!/usr/bin/env bashio
+!/usr/bin/env bashio
 set -e
 
 # https://github.com/hassio-addons/bashio
@@ -19,10 +19,12 @@ cat $CONFIG_PATH
 # cat $SYSTEM_USER
 
 configPath="/root/.cloudflared/config.yml"
-mkdir -p /root/.cloudflared
+mkdir -p /root/.cloudflared/
+chmod 755 -R /root/.cloudflared/
 
 cp -Rv /ssl/$PEM /root/.cloudflared/cert.pem
 cp -Rv /ssl/${CREDENTIALS} /root/.cloudflared/
+
 
 # echo $PEM >> /root/.cloudflared/cert.pem
 # echo "log: stdout" > $configPath
