@@ -74,8 +74,14 @@ echo "#!/usr/bin/env bashio" > go.sh
 
 if bashio::config.true 'no_autoupdate'; then
     echo cloudflared $LEGACY --no-autoupdate $FLAG $CRED --hostname "$HOST" --url "$URL" >> go.sh
+    bashio::log.info "Running with --no-autoupdate"
 else
     echo cloudflared $LEGACY $FLAG $CRED --hostname "$HOST" --url "$URL" >> go.sh
+    if bashio::config.true 'legacy'; then
+      bashio::log.info "Running legacy mode"
+    else
+      bashio::log.info "Running full mode"
+    fi
 fi
 chmod +x ./go.sh
 ./go.sh
