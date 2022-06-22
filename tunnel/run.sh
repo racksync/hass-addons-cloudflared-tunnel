@@ -21,7 +21,9 @@ cat $CONFIG_PATH
 
 configPath="/root/.cloudflared/config.yml"
 mkdir -p /root/.cloudflared/
-cp -Rv /ssl/* /root/.cloudflared/
+cp -Rv /ssl/*.json /root/.cloudflared/
+cp -Rv /ssl/*.pem /root/.cloudflared/
+cp -Rv /ssl/*.yaml /root/.cloudflared/
 
 
 
