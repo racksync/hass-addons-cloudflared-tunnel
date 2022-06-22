@@ -15,7 +15,6 @@ PEM=$(jq --raw-output ".pem" $CONFIG_PATH)
 FLAG=$(jq --raw-output ".flag" $CONFIG_PATH)
 CREDENTIALS=$(jq --raw-output ".credentials" $CONFIG_PATH)
 
-
 cat $CONFIG_PATH
 # cat $SYSTEM_USER
 
@@ -25,7 +24,8 @@ cp -Rv /ssl/* /root/.cloudflared/
 
 # echo $PEM >> /root/.cloudflared/cert.pem
 # echo "log: stdout" > $configPath
-bashio::log.info "Bashio!"
+bashio::log.info "Starting Cloudflare Services"
+bashio::log.info "This addon is under maintenance by RACKSYNC"
 # if bashio::var.has_value "$(bashio::addon.port 4040)"; then
 #   echo "web_addr: 0.0.0.0:$(bashio::addon.port 4040)" >> $configPath
 # fi
@@ -66,8 +66,8 @@ fi
 #   echo "No region defined, default region is US."
 # fi
 # cat $configPath
-configfile=$(cat $configPath)
-bashio::log.info "Configure: \n${configfile}"
+#configfile=$(cat $configPath)
+#bashio::log.info "Configure: \n${configfile}"
 # bashio::log.info "Config :file \n${cat /root/.cloudflared/cert.pem}"
 
 echo "#!/usr/bin/env bashio" > go.sh
