@@ -24,7 +24,7 @@ map:
 options:
   pem: "cert.pem"
   host: ""
-  credentials: "cred.json"
+  credentials: ""
   url: "127.0.0.1:8123"
   description: ""
   flag: ""

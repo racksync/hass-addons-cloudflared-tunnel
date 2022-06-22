@@ -47,6 +47,12 @@ if bashio::var.has_value "$(bashio::config 'pem')"; then
   echo "$(bashio::config 'pem')" >> /root/.cloudflared/cert.pem
 fi
 
+if bashio::var.has_value "$(bashio::config 'credentials')"; then
+  CRED="--credentials-file /root/.cloudflared/${CREDENTIALS}"
+else
+  CRED=" "
+fi
+
 if bashio::config.true 'legacy'; then
   LEGACY=" "
 else
@@ -69,9 +75,9 @@ bashio::log.info "Configure: \n${configfile}"
 echo "#!/usr/bin/env bashio" > go.sh
 
 if bashio::config.true 'no_autoupdate'; then
-    echo cloudflared $LEGACY --no-autoupdate $FLAG --credentials-file /root/.cloudflared/"$CREDENTIALS" --hostname "$HOST" --url "$URL" >> go.sh
+    echo cloudflared $LEGACY --no-autoupdate $FLAG $CREDENTIALS --hostname "$HOST" --url "$URL" >> go.sh
 else
-    echo cloudflared $LEGACY $FLAG --credentials-file /root/.cloudflared/"$CREDENTIALS" --hostname "$HOST" --url "$URL" >> go.sh
+    echo cloudflared $LEGACY $FLAG $CRED --hostname "$HOST" --url "$URL" >> go.sh
 fi
 chmod +x ./go.sh
 ./go.sh
