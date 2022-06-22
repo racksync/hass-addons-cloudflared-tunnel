@@ -6,5 +6,7 @@
 TOKEN=$(bashio::config 'token')
 
 bashio::log.info "Starting Cloudflare Services"
+bashio::log.info "Fetching Data from Zero Trust Platform"
+bashio::log.info "This addon is under maintenance by RACKSYNC"
 exec cloudflared tunnel run --force --token $TOKEN
-bashio::log.info "Cloudflare Services Started"
+
