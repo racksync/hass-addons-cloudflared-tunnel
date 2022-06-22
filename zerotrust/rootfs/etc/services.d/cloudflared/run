@@ -5,16 +5,16 @@
 
 TOKEN=$(bashio::config 'token')
 
-bashio::log.info "Starting Cloudflare Services"
+bashio::log.info "Starting Cloudflare Services 🆙"
 bashio::log.info "This addon is under maintenance by RACKSYNC"
 mkdir -p /root/.cloudflared/
 cp -Rv /ssl/* /root/.cloudflared/
 
 if bashio::config.true 'config'; then
-    bashio::log.info "Fetching tunnel data from config.yaml"
+    bashio::log.info "Fetching tunnel data from config.yaml 🔧"
     exec cloudflared tunnel --config /root/.cloudflared/config.yaml run
 else
-    bashio::log.info "Fetching tunnel data from Token!"
+    bashio::log.info "Fetching tunnel data from Token! 🔑"
     exec cloudflared tunnel run --force --token $TOKEN
 fi
 
