@@ -13,7 +13,7 @@ HOST=$(jq --raw-output ".host" $CONFIG_PATH)
 URL=$(jq --raw-output ".url" $CONFIG_PATH)
 PEM=$(jq --raw-output ".pem" $CONFIG_PATH)
 FLAG=$(jq --raw-output ".flag" $CONFIG_PATH)
-#CREDENTIALS=$(jq --raw-output ".credentials" $CONFIG_PATH)
+CREDENTIALS=$(jq --raw-output ".credentials" $CONFIG_PATH)
 
 
 cat $CONFIG_PATH
@@ -21,8 +21,8 @@ cat $CONFIG_PATH
 
 configPath="/root/.cloudflared/config.yml"
 mkdir -p /root/.cloudflared/
-cp -Rv /ssl/$PEM /root/.cloudflared/cert.pem 
-cp -Rv /ssl/$CREDENTIALS /root/.cloudflared/cred.json
+cp /ssl/$PEM /root/.cloudflared/cert.pem 
+cp /ssl/$CREDENTIALS /root/.cloudflared/$CREDENTIALS
 
 
 # echo $PEM >> /root/.cloudflared/cert.pem
@@ -48,7 +48,7 @@ if bashio::var.has_value "$(bashio::config 'pem')"; then
 fi
 
 if bashio::var.has_value "$(bashio::config 'credentials')"; then
-  CRED="--credentials-file /root/.cloudflared/cred.json"
+  CRED="--credentials-file /root/.cloudflared/${CREDENTIALS}"
 else
   CRED=" "
 fi
