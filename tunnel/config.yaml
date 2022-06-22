@@ -1,4 +1,4 @@
-version: 2022.06.21
+version: 2022.06.23
 slug: racksync-cloudflare-tunnel-standard
 name: Cloudflare Tunnel (Standard)
 description: Cloudflare Tunnel from RACKSYNC.COM (Zero Trust Migratable)
@@ -19,6 +19,8 @@ host_network: true
 apparmor: false
 host_pid: true
 homeassistant: 2022.6.6
+advanced: true
+stage: stable
 map: 
   - config:ro
   - ssl:ro

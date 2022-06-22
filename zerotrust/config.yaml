@@ -1,4 +1,4 @@
-version: 2022.06.21
+version: 2022.06.23
 slug: racksync-cloudflare-tunnel-zerotrust
 name: Cloudflare Tunnel (Zero Trust)
 description: Cloudflare Tunnel from RACKSYNC.COM 
@@ -19,6 +19,8 @@ host_network: true
 apparmor: false
 host_pid: true
 homeassistant: 2022.6.6
+advanced: true
+stage: experimental
 map: 
   - config:ro
   - ssl:ro
