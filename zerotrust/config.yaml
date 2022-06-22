@@ -18,6 +18,7 @@ boot: auto
 host_network: true
 apparmor: false
 host_pid: true
+homeassistant: 2022.6.6
 map: 
   - config:ro
   - ssl:ro
