@@ -13,7 +13,7 @@ HOST=$(jq --raw-output ".host" $CONFIG_PATH)
 URL=$(jq --raw-output ".url" $CONFIG_PATH)
 PEM=$(jq --raw-output ".pem" $CONFIG_PATH)
 FLAG=$(jq --raw-output ".flag" $CONFIG_PATH)
-CREDENTIALS=$(jq --raw-output ".credentials" $CONFIG_PATH)
+#CREDENTIALS=$(jq --raw-output ".credentials" $CONFIG_PATH)
 
 
 cat $CONFIG_PATH
