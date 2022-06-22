@@ -33,7 +33,7 @@ options:
 schema:
   pem: str
   host: str
-  credentials: str
+  credentials: str?
   url: str
   description: str?
   flag: str?
