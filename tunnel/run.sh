@@ -22,7 +22,7 @@ cat $CONFIG_PATH
 configPath="/root/.cloudflared/config.yml"
 mkdir -p /root/.cloudflared/
 cp -Rv /ssl/$PEM /root/.cloudflared/cert.pem 
-cp -Rv /ssl/$CREDENTIALS /root/.cloudflared/$CREDENTIALS
+cp -Rv /ssl/$CREDENTIALS /root/.cloudflared/cred.json
 
 
 # echo $PEM >> /root/.cloudflared/cert.pem
@@ -48,7 +48,7 @@ if bashio::var.has_value "$(bashio::config 'pem')"; then
 fi
 
 if bashio::var.has_value "$(bashio::config 'credentials')"; then
-  CRED="--credentials-file /root/.cloudflared/${CREDENTIALS}"
+  CRED="--credentials-file /root/.cloudflared/cred.json"
 else
   CRED=" "
 fi
@@ -75,7 +75,7 @@ bashio::log.info "Configure: \n${configfile}"
 echo "#!/usr/bin/env bashio" > go.sh
 
 if bashio::config.true 'no_autoupdate'; then
-    echo cloudflared $LEGACY --no-autoupdate $FLAG $CREDENTIALS --hostname "$HOST" --url "$URL" >> go.sh
+    echo cloudflared $LEGACY --no-autoupdate $FLAG $CRED --hostname "$HOST" --url "$URL" >> go.sh
 else
     echo cloudflared $LEGACY $FLAG $CRED --hostname "$HOST" --url "$URL" >> go.sh
 fi
