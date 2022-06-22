@@ -10,5 +10,12 @@ bashio::log.info "Fetching Data from Zero Trust Platform"
 bashio::log.info "This addon is under maintenance by RACKSYNC"
 mkdir -p /root/.cloudflared/
 cp -Rv /ssl/* /root/.cloudflared/
-exec cloudflared tunnel run --force --token $TOKEN
+
+if bashio::config.true 'config'; then
+    exec cloudflared tunnel --config /root/.cloudflared/config.yaml run
+else
+    exec cloudflared tunnel run --force --token $TOKEN
+fi
+
+
 

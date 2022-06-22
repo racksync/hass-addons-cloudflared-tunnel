@@ -27,6 +27,8 @@ map:
 options:
   token: ""
   description: ""
+  config: false
 schema:
   token: str?
   description: str?
+  config: bool
