@@ -1,4 +1,4 @@
-version: 2022.06.23
+version: 2022.06.24
 slug: racksync-cloudflare-tunnel-zerotrust
 name: Cloudflare Tunnel (Zero Trust)
 description: Cloudflare Tunnel from RACKSYNC.COM 
@@ -26,9 +26,9 @@ map:
   - ssl:ro
 options:
   token: ""
-  description: ""
+  desc: ""
   config: false
 schema:
   token: str?
-  description: str?
+  desc: str?
   config: bool
