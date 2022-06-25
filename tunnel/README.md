@@ -26,14 +26,14 @@ addon ตัวนี้เหมาะสำหรับคนที่มี�
 - [Home Automation Marketplace](https://www.facebook.com/groups/hatmarketplace)
 - [Home Automation Thailand Discord](https://discord.gg/Wc5CwnWkp4)
 
-### More
+### Features
 
+- [X] Support HTTP/SSH Protocol
+- [X] UI Improvement via Add-on Translations
 - [X] Legacy as Optional
 - [X] Zero Trust Support
-- [X] Switch out from Legacy mode
-- [X] Add Note Input Field 
-- [X] Re-factor Slug URL
-- [X] Fix a tiny container bug :tada:
+- [X] No Update Mode
+- [X] Low Learning Curve
 
 ## [RACKSYNC CO., LTD.](https://racksync.com)
 
