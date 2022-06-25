@@ -24,7 +24,6 @@ http:
     - ::1
 ```
 
-7. Restart Home Assistant
 
 
 
