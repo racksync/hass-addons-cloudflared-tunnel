@@ -1,0 +1,26 @@
+configuration:
+  pem: 
+    name: PEM
+    description: Put your .pem file here
+  host: 
+    name: Hostname
+    description: Public Hostname
+  credentials: 
+    name: Credential 
+    description: JSON File
+  url: 
+    name: URL / Origin
+    description: HTTP / SSH Supported
+  desc: 
+    name: Description
+    description: As you wish
+  flag: 
+    name: Flag
+    description: Additional Flag 
+  no_autoupdate: 
+    name: No Auto-Update 
+    description: Enable this option to run cloudflared daemon without update
+  legacy: 
+    name: Legacy 
+    description: Run with Legacy Mode
+  
