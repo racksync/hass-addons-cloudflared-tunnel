@@ -26,15 +26,14 @@ addon นี้เหมาะสำหรับคนที่มี domain บ
 ![racksync-screenshot](https://github.com/racksync/hass-addons-cloudflared-tunnel/blob/main/tunnel/screenshot.png?raw=true)
 
 
+### Features
 
-### More
-
-- [ ] Add Alternative (Secondary Tunnel)
+- [X] Support HTTP/SSH Protocol
+- [X] UI Improvement via Add-on Translations
+- [X] Legacy as Optional
 - [X] Zero Trust Support
-- [X] Deprecated Legacy mode
-- [X] Add Note Input Field 
-- [X] Re-factor Slug URL
-- [X] Fix a tiny container bug :tada:
+- [X] No Update Mode
+- [X] Low Learning Curve
 
 ### Automation Training
 
@@ -56,8 +55,6 @@ RACKSYNC COMPANY LIMITED \
 Suratthani, Thailand 84000 \
 Email : devops@racksync.com \
 Tel : +66 85 880 8885 
-
-
 
 [![Home Automation Thailand Discord](https://img.shields.io/discord/986181205504438345?style=for-the-badge)](https://discord.gg/Wc5CwnWkp4) [![Github](https://img.shields.io/github/followers/racksync?style=for-the-badge)](https://github.com/racksync) 
 [![WebsiteStatus](https://img.shields.io/website?down_color=grey&down_message=Offline&style=for-the-badge&up_color=green&up_message=Online&url=https%3A%2F%2Fracksync.com)](https://racksync.com)
