@@ -13,21 +13,34 @@
 - Recommend [LTS] Instead of [Legacy]
 
 # 2022.06.19
-## Configurable Options
+## Added
 
 - add "--no-autoupdate" option
 - customizable additional flag
 
 # 2022.06.21 
-## More Options
+## Added
 
   - Additional argument with "flag"
   - Legacy Option
   - net.core.rmem_max = 2500000
 
 # 2022.06.23
-## Requirement
+## Changed
 
   - Need Advance Mode Enabled
   - Minimum Home Assistant 2022.6.6 Requirement
+
+## Bug Fix
+
   - Fix error when no cred.json (mark as option)
+
+# 2022.06.26
+## Added
+
+  - More debug info
+  - Add-on Translation
+
+## Changed
+
+  - Handle ```cloudflared``` running method with more complexity (Need to be improve)
