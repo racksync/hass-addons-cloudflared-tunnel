@@ -24,8 +24,8 @@ cp -Rv /ssl/* /root/.cloudflared/
 
 # echo $PEM >> /root/.cloudflared/cert.pem
 # echo "log: stdout" > $configPath
-bashio::log.info "Starting Cloudflare Services 🆙"
-bashio::log.info "This addon is under maintenance by RACKSYNC"
+bashio::log.info "Starting Cloudflare Services"
+bashio::log.info "Made with Love from Thailand, Bring to you by RACKSYNC 🇹🇭"
 # if bashio::var.has_value "$(bashio::addon.port 4040)"; then
 #   echo "web_addr: 0.0.0.0:$(bashio::addon.port 4040)" >> $configPath
 # fi
@@ -53,7 +53,6 @@ fi
 
 if bashio::config.true 'legacy'; then
   LEGACY=" "
-else
   LEGACY="--name ${HOST}"
 fi
 
@@ -72,16 +71,27 @@ fi
 
 echo "#!/usr/bin/env bashio" > go.sh
 
-if bashio::config.true 'no_autoupdate'; then
+if bashio::config.true 'no_autoupdate' && bashio::config.true 'legacy'; then
     echo cloudflared $LEGACY --no-autoupdate $FLAG $CRED --hostname "$HOST" --url "$URL" >> go.sh
-    bashio::log.info "Running with --no-autoupdate 🙅🏼"
-else
+    bashio::log.info "Running legacy mode with --no-autoupdate flag ⛔️"
+elif
+    bashio::config.true 'no_autoupdate' && bashio::config.false 'legacy'; then
+    echo cloudflared --no-autoupdate $FLAG $CRED --hostname "$HOST" --url "$URL" >> go.sh
+    bashio::log.info "Running flag --no-autoupdate 🙅🏼"
+elif
+    bashio::config.false 'no_autoupdate' && bashio::config.true 'legacy'; then
     echo cloudflared $LEGACY $FLAG $CRED --hostname "$HOST" --url "$URL" >> go.sh
-    if bashio::config.true 'legacy'; then
-      bashio::log.info "Running legacy mode 👵🏼"
-    else
-      bashio::log.info "Running full mode 🚀"
-    fi
+    bashio::log.info "Running legacy mode 👩🏽‍⚖️"
+else
+    echo cloudflared $FLAG $CRED --hostname "$HOST" --url "$URL" >> go.sh
+    bashio::log.info "Normal Running Mode ✅"
 fi
+
+if bashio::config 'url' == *"ssh://"* ; then
+    bashio::log.info "Origin: SSH (Secure Shell) 👨🏻‍💻"
+else
+    bashio::log.info "Origin: HTTP 🚀"
+fi
+
 chmod +x ./go.sh
 ./go.sh
