@@ -31,4 +31,4 @@ options:
 schema:
   token: str?
   desc: str?
-  config: bool
+  config: bool?
