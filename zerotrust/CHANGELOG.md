@@ -1,12 +1,18 @@
 ### CHANGELOG
 
-# 2022.06.21
-## First release
+# 2022.06.26
+## Requirement
 
-  - Use quic protocol
+  - Change config bool
+  
 
 # 2022.06.23
 ## Requirement
 
   - Need Advance Mode Enabled
   - Minimum Home Assistant 2022.6.6 Requirement
+
+# 2022.06.21
+## First release
+
+  - Use quic protocol

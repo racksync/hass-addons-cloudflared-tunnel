@@ -1,29 +1,14 @@
 ### CHANGELOG
 
-# 2022.06.14
-## First Release of LTS
-
-- Bye bye [Legacy Mode] Say Hello to [LTS]
-- S6-Overlay-v3
-- Base Image v3.15
-
-# 2022.06.14a
-## Add LTS Tunnel as Minor Release 
-
-- Recommend [LTS] Instead of [Legacy]
-
-# 2022.06.19
+# 2022.06.26
 ## Added
 
-- add "--no-autoupdate" option
-- customizable additional flag
+  - More debug info
+  - Add-on Translation
 
-# 2022.06.21 
-## Added
+## Changed
 
-  - Additional argument with "flag"
-  - Legacy Option
-  - net.core.rmem_max = 2500000
+  - Handle ```cloudflared``` running method with more complexity (Need to be improve)
 
 # 2022.06.23
 ## Changed
@@ -35,12 +20,33 @@
 
   - Fix error when no cred.json (mark as option)
 
-# 2022.06.26
+
+# 2022.06.21 
 ## Added
 
-  - More debug info
-  - Add-on Translation
+  - Additional argument with "flag"
+  - Legacy Option
+  - net.core.rmem_max = 2500000
 
-## Changed
+# 2022.06.19
+## Added
 
-  - Handle ```cloudflared``` running method with more complexity (Need to be improve)
+- add "--no-autoupdate" option
+- customizable additional flag
+
+# 2022.06.14a
+## Add LTS Tunnel as Minor Release 
+
+- Recommend [LTS] Instead of [Legacy]
+
+
+# 2022.06.14
+## First Release of LTS
+
+- Bye bye [Legacy Mode] Say Hello to [LTS]
+- S6-Overlay-v3
+- Base Image v3.15
+
+
+
+
