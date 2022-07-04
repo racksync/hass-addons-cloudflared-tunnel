@@ -9,7 +9,7 @@
 
 ## Disclaimer ###
 
-addon ตัวนี้เหมาะสำหรับคนที่มีเชี่ยวชาญการทำ tunnel ด้วย Cloudflare Zero Trust อยู่แล้ว 
+Add-on ตัวนี้เหมาะสำหรับคนที่มีเชี่ยวชาญการทำ tunnel ด้วย Cloudflare Zero Trust อยู่แล้ว 
 
 ## How to Install & Setup
 
