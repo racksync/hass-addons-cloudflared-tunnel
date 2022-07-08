@@ -1,5 +1,10 @@
 ### CHANGELOG
 
+## 2022.07.08
+### Fix
+
+  - Fix Legacy Condition
+
 ## 2022.06.26
 ### Added
 
