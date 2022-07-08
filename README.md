@@ -28,8 +28,6 @@ addon นี้เหมาะสำหรับคนที่มี domain บ
 
 ### Features
 
-- [X] Support HTTP/SSH Protocol
-- [X] UI Improvement via Add-on Translations
 - [X] Legacy as Optional
 - [X] Zero Trust Support
 - [X] No Update Mode
