@@ -1,6 +1,6 @@
-version: 2022.07.10
+version: 2022.07.10a
 slug: racksync-cloudflare-tunnel-standard
-name: Cloudflare Tunnel (Standard)
+name: Cloudflare Tunnel
 description: Cloudflare Tunnel from RACKSYNC.COM (Zero Trust Migratable)
 url: https://github.com/racksync/hass-addons-cloudflared-tunnel
 codenotary: devops@racksync.com
