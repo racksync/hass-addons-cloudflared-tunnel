@@ -28,7 +28,9 @@ options:
   token: ""
   desc: ""
   config: false
+  no_autoupdate: false
 schema:
   token: str?
   desc: str?
   config: bool?
+  no_autoupdate: bool
