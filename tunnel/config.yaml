@@ -1,4 +1,4 @@
-version: 2022.07.08a
+version: 2022.07.10
 slug: racksync-cloudflare-tunnel-standard
 name: Cloudflare Tunnel (Standard)
 description: Cloudflare Tunnel from RACKSYNC.COM (Zero Trust Migratable)
@@ -32,7 +32,7 @@ options:
   desc: ""
   flag: ""
   no_autoupdate: false
-  legacy: false
+
 schema:
   pem: str
   host: str
@@ -41,4 +41,3 @@ schema:
   desc: str?
   flag: str?
   no_autoupdate: bool
-  legacy: bool

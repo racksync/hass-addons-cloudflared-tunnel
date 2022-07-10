@@ -1,5 +1,13 @@
 ### CHANGELOG
 
+## 2022.07.10
+### Remove
+
+  - Deprecated Legacy 
+```
+Cloudflare will no longer support legacy deployments of Cloudflare Tunnel on On October, 2022. 
+```
+
 ## 2022.07.08
 ### Fix
 

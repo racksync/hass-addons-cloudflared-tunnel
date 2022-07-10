@@ -1,8 +1,5 @@
-# Home Assistant Cloudflare Tunnel - Standard
+# Home Assistant Cloudflare Tunnel 
 
-## Disclaimer ###
-
-addon ตัวนี้เหมาะสำหรับคนที่มีเชี่ยวชาญการทำ tunnel เดิม หรือเคยใช้ [legacy addons](https://github.com/racksync/hass-addons-cloudflared-tunnel) มาก่อน ซึ่งอาจจะมี domain บน cloudflare อยู่แล้ว ทำ tunnel login ผ่านขั้นตอน [authen](https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/install-and-setup/tunnel-guide) ก็สามารถ add hostname จาก addon ได้เลยโดยไม่ต้องมานั่ง add บนระบบหลังบ้านของ cloudflare ทีละตัว ทั้งนี้เรามีให้บริการจดโดเมน 450 บาท/ปี ใช้ Hostname บน Home Assistant ได้ไม่จำกัด ติดต่อ info@racksync.com
 
 ## How to Install Add-on
 
@@ -46,7 +43,7 @@ http:
 
 - [X] Support HTTP/SSH Protocol
 - [X] UI Improvement via Add-on Translations
-- [X] Legacy as Optional
+- [X] No Legacy
 - [X] Zero Trust Support
 - [X] No Update Mode
 - [X] Low Learning Curve
