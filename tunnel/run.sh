@@ -50,11 +50,11 @@ fi
 echo "#!/usr/bin/env bashio" > go.sh
 
 if bashio::config.false 'no_autoupdate'; then
-    echo cloudflared $FLAG $CRED --hostname "$HOST" --url "$URL" >> go.sh
+    echo cloudflared $FLAG $CRED --name "$HOST" --hostname "$HOST" --url "$URL" >> go.sh
     bashio::log.info "Running with auto-update 🛑"
     bashio::log.info "Auto-Update may cause your system to be unstable"
 else
-    echo cloudflared --no-autoupdate $FLAG $CRED --hostname "$HOST" --url "$URL" >> go.sh
+    echo cloudflared --no-autoupdate $FLAG $CRED --name "$HOST" --hostname "$HOST" --url "$URL" >> go.sh
     bashio::log.info "Running without auto-update ✅ "
 
 fi
