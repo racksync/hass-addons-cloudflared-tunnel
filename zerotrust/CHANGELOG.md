@@ -1,5 +1,10 @@
 ### CHANGELOG
 
+## 2022.07.10a
+### Add
+
+  - Add --no-autoupdate flag
+
 ## 2022.06.26
 ### Requirement
 
