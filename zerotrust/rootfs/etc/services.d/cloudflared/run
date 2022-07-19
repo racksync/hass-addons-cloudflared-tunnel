@@ -6,9 +6,7 @@ bashio::log.info "Starting Cloudflare Services"
 bashio::log.info "Made with Love from Thailand, Bring to you by RACKSYNC 🇹🇭"
 
 mkdir -p /root/.cloudflared/
-touch /ssl/dummy.pem
-chmod 755 /ssl/dummy.pem
-cp -Rv /ssl/* /root/.cloudflared/
+
 
 if bashio::config.true 'no_autoupdate'; then
    NOUPDATE="--no-autoupdate"
@@ -19,6 +17,7 @@ fi
 
 if bashio::config.true 'config'; then
     bashio::log.info "Fetching tunnel data from config.yaml 🔧"
+    exec cp -Rv /ssl/config.yaml /root/.cloudflared/
     exec cloudflared tunnel $NOUPDATE --config /root/.cloudflared/config.yaml run
 else
     bashio::log.info "Fetching tunnel data from Token! 🔑"

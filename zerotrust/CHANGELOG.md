@@ -2,7 +2,7 @@
 
 ## 2022.07.19
 ## Fixed
-  - Quickly add dummy.pem for temporary bug fix
+  - Fix Empty SSL Directory
 
 ## Change
   - Change base image to 3.16
