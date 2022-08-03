@@ -13,7 +13,7 @@ addon นี้เหมาะสำหรับคนที่มี domain บ
 
 ## Version ## 
 
-- Standard แบบปกติที่รันกันทั่ว ๆ ไป (Migrate เป็น Zero Trust ได้)
+- Name Tunnel แบบปกติที่รันกันทั่ว ๆ ไป (Migrate เป็น Zero Trust ได้)
 - [Zero Trust](https://www.cloudflare.com/products/zero-trust/) 
 
 ## How to Install Add-on
