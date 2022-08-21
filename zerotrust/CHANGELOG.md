@@ -4,6 +4,7 @@
 ### Change
 
   - Change Base Image to hassio-addons:12.2.3
+  - Additional flag
 
 ## 2022.07.19
 ## Fixed
