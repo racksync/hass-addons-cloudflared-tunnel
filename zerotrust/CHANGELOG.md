@@ -1,5 +1,10 @@
 ### CHANGELOG
 
+## 2022.08.21
+### Change
+
+  - Change Base Image to hassio-addons:12.2.3
+
 ## 2022.07.19
 ## Fixed
   - Fix Empty SSL Directory
