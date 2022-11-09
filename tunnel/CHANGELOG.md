@@ -1,5 +1,10 @@
 ### CHANGELOG
 
+## 2022.11.9
+### Change
+
+  - Change Base Image to hassio-addons:12.2.6
+
 ## 2022.08.21
 ### Change
 
