@@ -1,4 +1,4 @@
-version: 2022.08.21
+version: 2022.11.09
 slug: racksync-cloudflare-tunnel-zerotrust
 name: Cloudflare Tunnel (Zero Trust)
 description: Cloudflare Tunnel from RACKSYNC.COM 
