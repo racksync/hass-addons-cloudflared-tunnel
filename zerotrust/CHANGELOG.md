@@ -1,5 +1,10 @@
 ### CHANGELOG
 
+## 2022.11.13
+### Change
+
+  - Change to home-assistant base image 3.16
+
 ## 2022.11.09
 ### Change
 
