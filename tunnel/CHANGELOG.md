@@ -1,5 +1,11 @@
 ### CHANGELOG
 
+## 2022.11.14a
+### Update
+
+  - Update Finish Script
+
+
 ## 2022.11.14
 ### Add
 
