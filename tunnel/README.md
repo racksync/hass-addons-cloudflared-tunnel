@@ -1,7 +1,6 @@
 # Home Assistant Cloudflared Argo Tunnel
 
-
-[![Base Image](https://img.shields.io/badge/Base%20Image-3.15-blue)](https://github.com/home-assistant/docker-base)  [![alpine-armhf](https://img.shields.io/badge/armhf-yes-brightgreen)](https://alpinelinux.org/releases/) 
+[![Base Image](https://img.shields.io/github/v/release/hassio-addons/addon-base?color=orange)](https://github.com/hassio-addons/addon-base)  [![alpine-armhf](https://img.shields.io/badge/armhf-yes-brightgreen)](https://alpinelinux.org/releases/) 
 [![alpine-armv7](https://img.shields.io/badge/armv7-yes-brightgreen)](https://alpinelinux.org/releases/) 
 [![alpine-aarch64](https://img.shields.io/badge/aarch64-yes-brightgreen)](https://alpinelinux.org/releases/) 
 [![alpine-amd64](https://img.shields.io/badge/amd64-yes-brightgreen)](https://alpinelinux.org/releases/) 
@@ -9,7 +8,7 @@
 
 ## Disclaimer ###
 
-addon ตัวนี้เหมาะสำหรับคนที่มีเชี่ยวชาญการทำ tunnel มาก่อน ซึ่งอาจจะมี domain บน cloudflare อยู่แล้ว ทำ tunnel login ผ่านขั้นตอน [authen](https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/install-and-setup/tunnel-guide) ก็สามารถ add hostname จาก addon ได้เลยโดยไม่ต้องมานั่ง add บนระบบหลังบ้านของ cloudflare ทีละตัว ทั้งนี้เรามีให้บริการจดโดเมน 450 บาท/ปี ใช้ Hostname บน Home Assistant ได้ไม่จำกัด ติดต่อ info@racksync.com
+Add-on ตัวนี้เหมาะสำหรับคนที่มีเชี่ยวชาญการทำ tunnel ด้วย Cloudflare Zero Trust อยู่แล้ว 
 
 ## How to Install & Setup
 
@@ -26,14 +25,14 @@ addon ตัวนี้เหมาะสำหรับคนที่มี�
 - [Home Automation Marketplace](https://www.facebook.com/groups/hatmarketplace)
 - [Home Automation Thailand Discord](https://discord.gg/Wc5CwnWkp4)
 
-### Features
+### More
 
-- [X] Support HTTP/SSH Protocol
-- [X] UI Improvement via Add-on Translations
-- [X] No Legacy 
+- [X] Token Support
 - [X] Zero Trust Support
-- [X] No Update Mode
-- [X] Low Learning Curve
+- [X] Switch out from Legacy mode
+- [X] Add Note Input Field 
+- [X] Re-factor Slug URL
+- [X] Fix a tiny container bug :tada:
 
 ## [RACKSYNC CO., LTD.](https://racksync.com)
 

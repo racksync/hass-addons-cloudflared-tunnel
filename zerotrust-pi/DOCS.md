@@ -1,4 +1,4 @@
-# Home Assistant Cloudflare Tunnel - Zero Trust
+# Home Assistant Cloudflare Tunnel - Zero Trust for Raspberry Pi
 
 ## Disclaimer ###
 
