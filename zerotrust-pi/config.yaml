@@ -16,7 +16,7 @@ startup: system
 hassio_api: false
 boot: auto
 host_network: true
-apparmor: false
+apparmor: true
 host_pid: true
 homeassistant: 2022.11.2
 advanced: true
