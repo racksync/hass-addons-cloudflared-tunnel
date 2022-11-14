@@ -1,5 +1,10 @@
 ### CHANGELOG
 
+## 2022.11.14b
+### Update
+
+  - Remove apk add
+
 ## 2022.11.14a
 ### Update
 

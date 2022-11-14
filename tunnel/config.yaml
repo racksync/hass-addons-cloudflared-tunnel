@@ -1,4 +1,4 @@
-version: 2022.11.14a
+version: 2022.11.14b
 slug: racksync-cloudflare-tunnel-standard
 name: Cloudflare Tunnel
 description: Cloudflare Tunnel from RACKSYNC.COM (Zero Trust Migratable)
