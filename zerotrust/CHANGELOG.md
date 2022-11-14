@@ -1,7 +1,7 @@
 ### CHANGELOG
 
 ## 2022.11.14
-### Change
+### Add
 
   - Add Separate Raspberry Pi Support
 
