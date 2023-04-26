@@ -22,8 +22,5 @@ if bashio::config.true 'config'; then
     exec cloudflared tunnel $FLAG $NOUPDATE --config /root/.cloudflared/config.yaml run
 else
     bashio::log.info "Fetching tunnel data from Token! 🔑"
-    exec cloudflared tunnel $FLAG $NOUPDATE run --force --token $TOKEN
+    exec cloudflared tunnel $FLAG $NOUPDATE run --token $TOKEN
 fi
-
-
-
