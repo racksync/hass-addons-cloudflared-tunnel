@@ -1,5 +1,9 @@
 ### CHANGELOG
 
+## 2023.04.26
+### Update
+  - Remove ```--force``` argument
+
 ## 2022.11.14b
 ### Update
 

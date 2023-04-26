@@ -7,6 +7,7 @@ bashio::log.info "Made with Love from Thailand, Bring to you by RACKSYNC ðŸ‡¹ðŸ‡
 
 mkdir -p /root/.cloudflared/
 
+
 if bashio::config.true 'no_autoupdate'; then
    NOUPDATE="--no-autoupdate"
 else
