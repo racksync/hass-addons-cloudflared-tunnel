@@ -15,8 +15,8 @@ addon นี้เหมาะกับกรณีที่ผูก domain บ
 
 ## Version ## 
 
-- Name Tunnel แบบปกติที่รันกันทั่ว ๆ ไป (Migrate เป็น Zero Trust ได้)
-- [Zero Trust](https://www.cloudflare.com/products/zero-trust/) 
+- Cloudflare Tunnel (Zero Trust) standing for x86_64
+- Cloudflare Tunnel for Raspberry Pi (Zero Trust) standing for armhf (Raspberry Pi 3/4)
 
 ## How to Install Add-on
 
