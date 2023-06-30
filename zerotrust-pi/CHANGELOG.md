@@ -1,5 +1,12 @@
 ### CHANGELOG
 
+## 2023.7.1
+### Update
+  - ```legacy mode``` officially discontinued
+  - Use release format as Home Assistant (eg: 2023.7.1)
+  - Minimum Home Assistant 2021.7.1 Requirement
+  - Update Base Image to 3.18
+
 ## 2023.04.26
 ### Update
   - Remove ```--force``` argument

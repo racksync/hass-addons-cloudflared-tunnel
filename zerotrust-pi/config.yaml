@@ -18,7 +18,7 @@ boot: auto
 host_network: true
 apparmor: true
 host_pid: true
-homeassistant: 2023.6.3
+homeassistant: 2023.7.1
 advanced: true
 stage: experimental
 map: 
