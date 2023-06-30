@@ -1,6 +1,6 @@
 # Home Assistant Cloudflared Argo Tunnel 
 
-[![Base Image](https://img.shields.io/badge/Base%20Image-3.16-blue)](https://github.com/home-assistant/docker-base)
+[![Base Image](https://img.shields.io/badge/Base%20Image-3.18-blue)](https://github.com/home-assistant/docker-base)
 [![Base Image](https://img.shields.io/github/v/release/hassio-addons/addon-base?color=orange&label=Hassio%20Image)](https://github.com/hassio-addons/addon-base)
 [![alpine-armhf](https://img.shields.io/badge/armhf-yes-brightgreen)](https://alpinelinux.org/releases/) 
 [![alpine-armv7](https://img.shields.io/badge/armv7-yes-brightgreen)](https://alpinelinux.org/releases/) 
@@ -11,7 +11,7 @@
 
 ## Disclaimer ###
 
-addon นี้เหมาะสำหรับคนที่มี domain บนระบบ cloudflare อยู่แล้ว ซึ่งได้ผ่านขั้นตอน [authen](https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/install-and-setup/tunnel-guide) โดยสามารถ add hostname จาก addon ได้เลย (ไม่ต้อง login cloudflared) โดยไม่ต้อง add บนระบบหลังบ้านของ cloudflare ทีละตัว หากยังไม่มี hostname/domain และต้องการทดสอบ สามารถขอไฟล์ .pem เพื่อทดสอบได้ กรณีต้องการใช้ .com ที่เป็นโดเมนของตัวเอง เรามีให้บริการจดโดเมน 450 บาท/ปี ใช้ sub domain ได้ไม่จำกัด ติดต่อ info@racksync.com
+addon นี้เหมาะกับกรณีที่ผูก domain บนระบบ cloudflare zerotrust 
 
 ## Version ## 
 
@@ -30,9 +30,9 @@ addon นี้เหมาะสำหรับคนที่มี domain บ
 
 ### Features
 
-- [X] Legacy as Optional
-- [X] Zero Trust Support
-- [X] No Update Mode
+- [X] No Automatic Update (cloudflared binary) 
+- [X] Protocal Support (QUIC, HTTP/2)
+- [X] Additional Arguments Support
 - [X] Low Learning Curve
 
 ### Automation Training
