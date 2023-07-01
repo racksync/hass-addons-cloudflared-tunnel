@@ -28,12 +28,10 @@ Add-on ตัวนี้เหมาะสำหรับคนที่มี�
 
 ### More
 
-- [X] Token Support
-- [X] Zero Trust Support
-- [X] Switch out from Legacy mode
-- [X] Add Note Input Field 
-- [X] Re-factor Slug URL
-- [X] Fix a tiny container bug :tada:
+- [X] No Automatic Update (cloudflared binary) 
+- [X] Protocal Support (QUIC, HTTP/2)
+- [X] Additional Arguments Support
+- [X] Low Learning Curve
 
 ## [RACKSYNC CO., LTD.](https://racksync.com)
 
