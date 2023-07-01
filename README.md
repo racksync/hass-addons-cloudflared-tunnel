@@ -1,4 +1,4 @@
-# Home Assistant Cloudflared Argo Tunnel 
+# Home Assistant Cloudflare Tunnel 
 
 [![Base Image](https://img.shields.io/badge/Base%20Image-3.18-blue)](https://github.com/home-assistant/docker-base)
 [![Base Image](https://img.shields.io/github/v/release/hassio-addons/addon-base?color=orange&label=Hassio%20Image)](https://github.com/hassio-addons/addon-base)
