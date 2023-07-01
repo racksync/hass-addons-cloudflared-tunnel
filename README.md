@@ -25,7 +25,7 @@ addon นี้เหมาะกับกรณีที่ผูก domain บ
 3. ศึกษาวิธีการโดยละเอียดของแต่ละโหมดได้จากหน้า Documentation หลักของ Add-on แต่ละโหมด
 
 
-![racksync-screenshot](https://github.com/racksync/hass-addons-cloudflared-tunnel/blob/main/tunnel/screenshot.png?raw=true)
+![racksync-screenshot](https://github.com/racksync/hass-addons-cloudflared-tunnel/blob/main/zerotrust/screenshot.png?raw=true)
 
 
 ### Features
