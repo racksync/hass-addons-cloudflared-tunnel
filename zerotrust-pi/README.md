@@ -1,15 +1,11 @@
-# Home Assistant Cloudflared Argo Tunnel - Zero Trust for Raspberry Pi
+# Home Assistant Cloudflared Argo Tunnel - Zero Trust
 
 
-[![Base Image](https://img.shields.io/badge/Base%20Image-3.16-blue)](https://github.com/home-assistant/docker-base)  [![alpine-armhf](https://img.shields.io/badge/armhf-yes-brightgreen)](https://alpinelinux.org/releases/) 
+[![Base Image](https://img.shields.io/github/v/release/hassio-addons/addon-base?color=orange&label=Hassio%20Image)](https://github.com/hassio-addons/addon-base)  [![alpine-armhf](https://img.shields.io/badge/armhf-yes-brightgreen)](https://alpinelinux.org/releases/) 
 [![alpine-armv7](https://img.shields.io/badge/armv7-yes-brightgreen)](https://alpinelinux.org/releases/) 
 [![alpine-aarch64](https://img.shields.io/badge/aarch64-yes-brightgreen)](https://alpinelinux.org/releases/) 
 [![alpine-amd64](https://img.shields.io/badge/amd64-yes-brightgreen)](https://alpinelinux.org/releases/) 
 [![alpine-i386](https://img.shields.io/badge/i386-yes-brightgreen)](https://alpinelinux.org/releases/)[![cloudflare-argo-tunnel-release](https://img.shields.io/github/v/release/racksync/hass-addons-cloudflared-tunnel)](https://github.com/racksync/hass-addons-cloudflared-tunnel/releases) [![last commit](https://img.shields.io/github/last-commit/racksync/hass-addons-cloudflared-tunnel)](https://github.com/racksync/hass-addons-cloudflared-tunnel/commit/)
-
-## Disclaimer ###
-
-Add-on ตัวนี้เหมาะสำหรับคนที่มีเชี่ยวชาญการทำ tunnel ด้วย Cloudflare Zero Trust อยู่แล้ว 
 
 ## How to Install & Setup
 
@@ -26,12 +22,6 @@ Add-on ตัวนี้เหมาะสำหรับคนที่มี�
 - [Home Automation Marketplace](https://www.facebook.com/groups/hatmarketplace)
 - [Home Automation Thailand Discord](https://discord.gg/Wc5CwnWkp4)
 
-### More
-
-- [X] No Automatic Update (cloudflared binary) 
-- [X] Protocal Support (QUIC, HTTP/2)
-- [X] Additional Arguments Support
-- [X] Low Learning Curve
 
 ## [RACKSYNC CO., LTD.](https://racksync.com)
 
