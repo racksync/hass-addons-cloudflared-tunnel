@@ -20,7 +20,7 @@ apparmor: true
 host_pid: true
 homeassistant: 2023.7.1
 advanced: true
-stage: experimental
+stage: stable
 map: 
   - config:ro
   - ssl:ro
