@@ -18,7 +18,7 @@ jobs:
       env:
         API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
       with:
-        source_file: "zerotrust/"
+        source_file: "zerotrust*"
         destination_repo: 'racksync/hass-addons-suite'
         destination_folder: '/'
         user_email: 'devops@racksync.com'
