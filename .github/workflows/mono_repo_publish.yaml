@@ -1,4 +1,4 @@
-name: Push to ADD-ONS SUITE
+name: Push to Add-Ons Suite
 on:
   push:
     paths:
