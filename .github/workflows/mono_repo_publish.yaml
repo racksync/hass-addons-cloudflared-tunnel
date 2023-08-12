@@ -1,0 +1,26 @@
+name: Push to Tasmota Build
+on:
+  push:
+    paths:
+      - zerotrust/*
+      - zerotrust-pi/*
+    branches: main
+
+jobs:
+  copy-file:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Push file
+      uses: dmnemec/copy_file_to_another_repo_action@main
+      env:
+        API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+      with:
+        source_file: "zerotrust/"
+        destination_repo: 'racksync/hass-addons-suite'
+        destination_folder: '/'
+        user_email: 'devops@racksync.com'
+        user_name: 'racksync'
+        commit_message: 'zerotrust has been updated'
