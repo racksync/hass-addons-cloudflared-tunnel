@@ -1,2 +1,9 @@
 .DS_Store
 tunnel/
+!README.md
+node_modules/
+.specs/
+.vscode/
+.specify/
+.env
+.claude/
