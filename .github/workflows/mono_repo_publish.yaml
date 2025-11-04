@@ -1,17 +1,19 @@
 name: Push to Add-Ons Suite
 on:
   push:
-#    paths:
-#      - zerotrust/*
-#      - zerotrust-pi/*
-    branches: main
+    branches: [ main ]
+    paths:
+      - 'zerotrust/**'
+      - 'zerotrust-pi/**'
+      - 'README.md'
+      - '.github/workflows/mono_repo_publish.yaml'
 
 jobs:
   push-zerotrust:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
     - name: Push zerotrust
       uses: dmnemec/copy_file_to_another_repo_action@main
@@ -29,7 +31,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
     - name: Push zerotrust-pi
       uses: dmnemec/copy_file_to_another_repo_action@main
@@ -47,7 +49,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
     - name: Push README.md
       uses: dmnemec/copy_file_to_another_repo_action@main
