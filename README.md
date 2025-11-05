@@ -1,38 +1,59 @@
-# Home Assistant Cloudflare Tunnel 
+# Home Assistant Cloudflare Zero Trust Tunnel
 
 [![Base Image](https://img.shields.io/badge/Base%20Image-Home%20Assistant%20Docker%20Base-blue)](https://github.com/home-assistant/docker-base)
 [![Base Image](https://img.shields.io/github/v/release/hassio-addons/addon-base?color=orange&label=Hassio%20Image)](https://github.com/hassio-addons/addon-base)
-[![raspbian-armhf](https://img.shields.io/badge/armhf-raspbian-brightgreen)](https://www.raspbian.org/) 
-[![alpine-armv7](https://img.shields.io/badge/armv7-yes-brightgreen)](https://alpinelinux.org/releases/) 
-[![alpine-aarch64](https://img.shields.io/badge/aarch64-yes-brightgreen)](https://alpinelinux.org/releases/) 
-[![alpine-amd64](https://img.shields.io/badge/amd64-yes-brightgreen)](https://alpinelinux.org/releases/) 
+[![raspbian-armhf](https://img.shields.io/badge/armhf-yes-brightgreen)](https://www.raspbian.org/)
+[![alpine-armv7](https://img.shields.io/badge/armv7-yes-brightgreen)](https://alpinelinux.org/releases/)
+[![alpine-aarch64](https://img.shields.io/badge/aarch64-yes-brightgreen)](https://alpinelinux.org/releases/)
+[![alpine-amd64](https://img.shields.io/badge/amd64-yes-brightgreen)](https://alpinelinux.org/releases/)
 [![alpine-i386](https://img.shields.io/badge/i386-yes-brightgreen)](https://alpinelinux.org/releases/)
-[![cloudflare-argo-tunnel-release](https://img.shields.io/github/v/release/racksync/hass-addons-cloudflared-tunnel)](https://github.com/racksync/hass-addons-cloudflared-tunnel/releases) [![last commit](https://img.shields.io/github/last-commit/racksync/hass-addons-cloudflared-tunnel)](https://github.com/racksync/hass-addons-cloudflared-tunnel/commit/)
+[![cloudflare-tunnel-release](https://img.shields.io/github/v/release/racksync/hass-addons-cloudflared-tunnel)](https://github.com/racksync/hass-addons-cloudflared-tunnel/releases)
+[![last commit](https://img.shields.io/github/last-commit/racksync/hass-addons-cloudflared-tunnel)](https://github.com/racksync/hass-addons-cloudflared-tunnel/commit/)
 
-## Disclaimer
+## Overview
 
-This addon is suitable for cases where domains are bound to the Cloudflare Zero Trust system 
+This Home Assistant add-on provides Cloudflare Zero Trust Tunnel functionality, allowing secure remote access to your Home Assistant instance through Cloudflare's global network.
 
-## Version ##
+## Supported Architectures
 
-- Cloudflare Tunnel (Zero Trust) - Universal addon supporting all architectures (armhf, armv7, aarch64, amd64, i386) including Raspberry Pi 3/4/5
+- ✅ **armhf** - Raspberry Pi (1, Zero, Zero W)
+- ✅ **armv7** - Raspberry Pi 2, 3
+- ✅ **aarch64** - Raspberry Pi 3, 4, 5 (64-bit)
+- ✅ **amd64** - Intel/AMD 64-bit systems
+- ✅ **i386** - Intel/AMD 32-bit systems
 
-## How to Install Add-on
+## Quick Start
 
-1. Install addon by adding repository: https://github.com/racksync/hass-addons-cloudflared-tunnel to your Home Assistant addon store
-2. You will see 1 Cloudflare Tunnel Zero Trust addon added, supporting all architectures including all Raspberry Pi models (beginners are recommended to run in Standard mode, with detailed explanations inside)
-3. Study the detailed methods from the addon's main Documentation page
+### Installation
 
+1. Add this repository to your Home Assistant add-on store:
+   ```
+   https://github.com/racksync/hass-addons-cloudflared-tunnel
+   ```
 
-![racksync-screenshot](https://github.com/racksync/hass-addons-cloudflared-tunnel/blob/main/zerotrust/screenshot.png?raw=true)
+2. Install the **Cloudflare Zero Trust Tunnel** add-on
 
+3. Create a tunnel from your [Cloudflare Zero Trust Dashboard](https://dash.teams.cloudflare.com/)
 
-### Features
+4. Configure the add-on with your tunnel token and restart
 
-- [X] No Automatic Update (cloudflared binary) 
-- [X] Protocal Support (QUIC, HTTP/2)
-- [X] Additional Arguments Support
-- [X] Low Learning Curve
+### Configuration Options
+
+- **Token Authentication** (Recommended): Simply enter your tunnel token
+- **Config File Override**: For advanced users with custom tunnel configurations
+
+📖 **For detailed setup instructions and advanced configuration, see the [documentation](zerotrust/DOCS.md)**
+
+## Features
+
+- ✅ **Zero Trust Security**: Leverages Cloudflare's security features
+- ✅ **Protocol Support**: QUIC and HTTP/2 for optimal performance
+- ✅ **Universal Architecture**: Supports all Home Assistant hardware
+- ✅ **Easy Setup**: Token-based configuration for beginners
+- ✅ **Advanced Configuration**: Custom config file support for power users
+- ✅ **Stable Versioning**: No automatic binary updates for reliability
+
+![Cloudflare Tunnel Setup](https://github.com/racksync/hass-addons-cloudflared-tunnel/blob/main/zerotrust/screenshot.png?raw=true)
 
 ### Automation Training
 

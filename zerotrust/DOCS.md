@@ -1,23 +1,93 @@
-# Home Assistant Cloudflare Tunnel - Zero Trust
+# Home Assistant Cloudflare Zero Trust Tunnel - Complete Documentation
 
-## How to Install Add-On
+## Table of Contents
 
-1. Install addon by adding repository: https://github.com/racksync/hass-addons-cloudflared-tunnel to your Home Assistant addon store
-2. Create Tunnel from [Zero Trust Dashboard](https://dash.teams.cloudflare.com/)
+1. [Installation](#installation)
+2. [Configuration Methods](#configuration-methods)
+3. [Method 1: Token Authentication](#method-1-token-authentication-recommended)
+4. [Method 2: Config File Override](#method-2-config-file-override-advanced)
+5. [Home Assistant Configuration](#home-assistant-configuration)
+6. [Troubleshooting](#troubleshooting)
+7. [Security Considerations](#security-considerations)
+8. [Advanced Features](#advanced-features)
+
+## Installation
+
+### Prerequisites
+
+- Home Assistant OS or Supervised installation
+- Cloudflare account with Zero Trust access
+- Custom domain configured in Cloudflare
+
+### Step 1: Add Repository
+
+1. Navigate to **Home Assistant Supervisor**
+2. Go to **Add-on Store**
+3. Click the three dots menu (⋮) and select **Repositories**
+4. Add: `https://github.com/racksync/hass-addons-cloudflared-tunnel`
+5. Refresh the add-on store
+
+### Step 2: Create Cloudflare Tunnel
+
+1. Go to [Cloudflare Zero Trust Dashboard](https://dash.teams.cloudflare.com/)
+2. Navigate to **Access > Tunnels**
+3. Click **Create tunnel**
+4. Choose **Cloudflared tunnel** and give it a name
+5. Save the tunnel token - you'll need it for configuration
 
 ## Configuration Methods
 
-### Method 1: Token Authentication (Default)
+This add-on supports two configuration methods:
 
-1. Go to addon configuration and enter the token obtained from step 2
-2. Select protocol (QUIC/HTTP2) - default is QUIC
-3. Configure your configuration.yaml then restart Home Assistant
+| Method | Difficulty | Use Case | Recommended |
+|--------|------------|----------|-------------|
+| Token Authentication | ⭐ Beginner | Simple single tunnel setup | ✅ Yes |
+| Config File Override | ⭐⭐⭐ Advanced | Multiple tunnels, custom routing | ⚠️ Power users only |
 
-### Method 2: Config File Override (Advanced)
+---
 
-For advanced users who want to use a custom `config.yaml` file instead of token authentication:
+## Method 1: Token Authentication (Recommended)
 
-#### Step 1: Create Cloudflare Tunnel Config File
+This is the simplest method for most users.
+
+### Step 1: Configure Add-on
+
+1. Install the **Cloudflare Zero Trust Tunnel** add-on
+2. Go to the add-on **Configuration** tab
+3. Enter your tunnel **Token** in the token field
+4. Select **Protocol** (QUIC recommended for better performance)
+5. Click **Save**
+
+### Step 2: Start and Test
+
+1. Start the add-on
+2. Check the logs for successful connection
+3. Test access via your configured tunnel URL
+
+### Step 3: Home Assistant Configuration
+
+Update your `configuration.yaml`:
+
+```yaml
+http:
+  cors_allowed_origins:
+    - https://your-homeassistant-domain.com
+  use_x_forwarded_for: true
+  trusted_proxies:
+    - 127.0.0.1
+    - 172.30.33.0/24  # Home Assistant Supervisor network
+    - ::1
+```
+
+Restart Home Assistant after making changes.
+
+---
+
+## Method 2: Config File Override (Advanced)
+
+Use this method for complex setups with multiple tunnels or custom routing rules.
+
+### Step 1: Create Cloudflare Tunnel Config File
 
 Create a `config.yaml` file with your tunnel configuration:
 
@@ -26,58 +96,201 @@ tunnel: your-tunnel-id-here
 credentials-file: /root/.cloudflared/credentials.json
 
 ingress:
-  - hostname: your-homeassistant.everyha.com
+  # Primary Home Assistant instance
+  - hostname: homeassistant.yourdomain.com
     service: http://homeassistant.local:8123
-  - hostname: your-nabu.everyha.com
+    originRequest:
+      noTLSVerify: false
+
+  # Additional services (optional)
+  - hostname: nabucasa.yourdomain.com
     service: http://homeassistant.local:8123
+
+  # Local network services (optional)
+  - hostname: router.yourdomain.com
+    service: http://192.168.1.1:80
+
+  # Catch-all rule (required)
   - service: http_status:404
 ```
 
-#### Step 2: Place Config File in Home Assistant
+### Step 2: Place Files in Home Assistant
 
-Upload your `config.yaml` file to your Home Assistant SSL directory:
+Upload your configuration files to the Home Assistant SSL directory:
 
-**Path:** `/ssl/config.yaml`
+**Required Files:**
+- `/ssl/config.yaml` - Your tunnel configuration
+- `/ssl/credentials.json` - Cloudflare credentials file
 
-**Methods to upload:**
-- **File Editor addon:** Navigate to `/ssl/` directory and upload
-- **Samba share:** Access your Home Assistant share and place in `/ssl/`
-- **Terminal/SSH:** Copy to the SSL directory
-- **Web UI:** Use Supervisor > File Editor if available
+**Upload Methods:**
 
-#### Step 3: Enable Config Override in Addon
+1. **File Editor Add-on:**
+   - Install the official File Editor add-on
+   - Navigate to `/ssl/` directory
+   - Upload both files
 
-1. Go to addon configuration
+2. **Samba Share:**
+   - Enable Samba share in Home Assistant
+   - Access `\\homeassistant.local\ssl\`
+   - Copy files to the directory
+
+3. **Terminal/SSH:**
+   ```bash
+   # Copy files to Home Assistant
+   scp config.yaml root@homeassistant.local:/ssl/
+   scp credentials.json root@homeassistant.local:/ssl/
+   ```
+
+### Step 3: Configure Add-on
+
+1. Go to the add-on **Configuration** tab
 2. Enable **"Config"** toggle (set to `true`)
-3. Leave token field empty
-4. Select preferred protocol (QUIC/HTTP2)
-5. Save and restart the addon
-
-#### Step 4: Place Credentials File
-
-Place your `credentials.json` file in the same `/ssl/` directory:
-- **Path:** `/ssl/credentials.json`
-
-The addon will automatically copy both files to the container and use them.
+3. Leave the **Token** field empty
+4. Select preferred **Protocol** (QUIC/HTTP2)
+5. Click **Save** and restart the add-on
 
 ## Home Assistant Configuration
+
+### Basic HTTP Configuration
 
 Add this to your `configuration.yaml`:
 
 ```yaml
 http:
   cors_allowed_origins:
-    - https://your-homeassistant.everyha.com
+    - https://homeassistant.yourdomain.com
+    - https://nabucasa.yourdomain.com
   use_x_forwarded_for: true
   trusted_proxies:
     - 127.0.0.1
-    - 172.30.33.0/24
+    - 172.30.33.0/24  # Supervisor network
+    - 172.30.32.0/24  # Docker network
     - ::1
 ```
 
-Restart Home Assistant after making changes.
+### Security Headers (Recommended)
 
-![racksync-screenshot](https://github.com/racksync/hass-addons-cloudflared-tunnel/blob/main/zerotrust/screenshot.png?raw=true)
+```yaml
+http:
+  # ... other config ...
+  x_forwarded_for: true
+  trusted_proxies:
+    - 127.0.0.1
+    - 172.30.33.0/24
+    - 172.30.32.0/24
+  ip_ban_enabled: true
+  login_attempts_threshold: 5
+```
+
+### Restart Required
+
+After modifying `configuration.yaml`, restart Home Assistant from **Settings > System > Restart**.
+
+## Troubleshooting
+
+### Common Issues
+
+#### Add-on Won't Start
+- Check token is correct and not expired
+- Verify internet connectivity
+- Check add-on logs for specific error messages
+
+#### Connection Timeout
+- Ensure firewall allows outbound connections
+- Check if DNS resolution works
+- Try switching protocol from QUIC to HTTP2
+
+#### Certificate Errors
+- Verify your domain is properly configured in Cloudflare
+- Check SSL/TLS settings in Cloudflare (should be Full or Full Strict)
+- Ensure Cloudflare proxy is enabled (orange cloud)
+
+#### Home Assistant Not Accessible
+- Verify `http:` configuration in `configuration.yaml`
+- Check if Home Assistant is running locally
+- Confirm tunnel routing matches your local service URLs
+
+### Log Locations
+
+- **Add-on logs:** Supervisor > Add-ons > Cloudflare Tunnel > Log tab
+- **Home Assistant logs:** Settings > System > Logs
+
+### Debug Mode
+
+Enable additional logging by adding to add-on options:
+```yaml
+additional_args: "--loglevel debug"
+```
+
+## Security Considerations
+
+### 🔒 Recommended Practices
+
+1. **Use Strong Tokens**: Generate new tunnel tokens if compromised
+2. **Enable Cloudflare Access**: Add additional authentication layers
+3. **Monitor Access Logs**: Regularly check tunnel usage
+4. **Update Regularly**: Keep add-on and Home Assistant updated
+5. **Network Segmentation**: Use firewall rules to limit access
+
+### Cloudflare Security Features
+
+Enable these in your Cloudflare Zero Trust dashboard:
+
+- **Access Policies**: Require authentication before accessing services
+- **Device Posture**: Check device compliance
+- **Geo-fencing**: Restrict access by location
+- **Rate Limiting**: Prevent abuse and brute force attacks
+
+## Advanced Features
+
+### Multiple Services
+
+Configure multiple Home Assistant instances or services:
+
+```yaml
+ingress:
+  - hostname: home.yourdomain.com
+    service: http://homeassistant.local:8123
+  - hostname: grafana.yourdomain.com
+    service: http://192.168.1.10:3000
+  - hostname: unifi.yourdomain.com
+    service: https://192.168.1.1:8443
+  - service: http_status:404
+```
+
+### Load Balancing
+
+Configure multiple backend servers:
+
+```yaml
+ingress:
+  - hostname: ha.yourdomain.com
+    service: https://home1.local:8123,https://home2.local:8123
+    originRequest:
+      noTLSVerify: true
+```
+
+### WebSocket Support
+
+For services requiring WebSocket support:
+
+```yaml
+ingress:
+  - hostname: ha.yourdomain.com
+    service: http://homeassistant.local:8123
+    originRequest:
+      noTLSVerify: true
+      connectTimeout: 30s
+      tcpKeepAlive: 30s
+```
+
+## Additional Resources
+
+- [Cloudflare Zero Trust Documentation](https://developers.cloudflare.com/cloudflare-one/)
+- [Home Assistant Remote Access](https://www.home-assistant.io/more-info/remote-access/)
+- [Community Support](https://community.home-assistant.io/)
+
+![Cloudflare Tunnel Setup](https://github.com/racksync/hass-addons-cloudflared-tunnel/blob/main/zerotrust/screenshot.png?raw=true)
 
 ### Automation Training
 

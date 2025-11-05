@@ -8,7 +8,49 @@ on:
       - '.github/workflows/mono_repo_publish.yaml'
 
 jobs:
+  clean-target-directory:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout target repository
+      uses: actions/checkout@v4
+      with:
+        repository: 'racksync/hass-addons-suite'
+        token: ${{ secrets.API_TOKEN_GITHUB }}
+        path: 'target-repo'
+
+    - name: Clean entire zerotrust directory
+      run: |
+        cd target-repo
+        if [ -d "zerotrust" ]; then
+          echo "🧹 Cleaning entire zerotrust directory..."
+          echo "Current contents:"
+          ls -la zerotrust/ || true
+
+          # Remove all contents but keep the directory
+          rm -rf zerotrust/*
+          echo "✅ Cleaned all contents from zerotrust directory"
+
+          git config --local user.email "devops@racksync.com"
+          git config --local user.name "racksync"
+          git add -A
+          git status
+          if git diff --staged --quiet; then
+            echo "ℹ️ No changes to commit (directory was already clean)"
+          else
+            git commit -m "🧹 Clean zerotrust directory for fresh update
+
+          - Removed all existing contents before fresh deployment
+          - Preparing for consolidated universal add-on deployment
+          - Supports all architectures: armhf, armv7, aarch64, amd64, i386"
+            git push
+            echo "✅ Successfully committed cleanup"
+          fi
+        else
+          echo "ℹ️ zerotrust directory not found, will be created during deployment"
+        fi
+
   push-zerotrust:
+    needs: clean-target-directory
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
@@ -24,9 +66,10 @@ jobs:
         destination_folder: 'zerotrust/'
         user_email: 'devops@racksync.com'
         user_name: 'racksync'
-        commit_message: 'zerotrust has been updated from legacy codebase'
+        commit_message: '✨ Update zerotrust universal add-on from consolidated codebase'
 
   push-zerotrust-readme:
+    needs: clean-target-directory
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
@@ -42,4 +85,4 @@ jobs:
         destination_folder: 'zerotrust/'
         user_email: 'devops@racksync.com'
         user_name: 'racksync'
-        commit_message: 'zerotrust readme 📝 has been updated from legacy codebase'
+        commit_message: '📝 Update zerotrust documentation from consolidated codebase'
