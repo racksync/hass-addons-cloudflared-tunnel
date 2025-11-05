@@ -36,16 +36,22 @@ jobs:
           echo "✅ Created zerotrust directory"
         fi
 
-        echo "📁 Copying zerotrust add-on files..."
-        cp -r ../zerotrust/* zerotrust/
-        echo "✅ Copied zerotrust add-on files"
+        echo "📁 Creating nested zerotrust/zerotrust structure..."
+        mkdir -p zerotrust/zerotrust
 
-        echo "📄 Copying repository README..."
+        echo "📁 Copying zerotrust add-on files to nested directory..."
+        cp -r ../zerotrust/* zerotrust/zerotrust/
+        echo "✅ Copied zerotrust add-on files to zerotrust/zerotrust/"
+
+        echo "📄 Copying repository README to main zerotrust directory..."
         cp ../README.md zerotrust/
-        echo "✅ Copied repository README"
+        echo "✅ Copied repository README to zerotrust/"
 
         echo "🔍 Verifying copied contents:"
+        echo "Main zerotrust directory:"
         ls -la zerotrust/
+        echo "Nested zerotrust/zerotrust directory:"
+        ls -la zerotrust/zerotrust/
 
     - name: Commit and push changes
       run: |
