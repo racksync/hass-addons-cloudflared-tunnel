@@ -8,9 +8,12 @@ on:
       - '.github/workflows/mono_repo_publish.yaml'
 
 jobs:
-  clean-target-directory:
+  deploy-to-suite:
     runs-on: ubuntu-latest
     steps:
+    - name: Checkout source repository
+      uses: actions/checkout@v4
+
     - name: Checkout target repository
       uses: actions/checkout@v4
       with:
@@ -18,71 +21,62 @@ jobs:
         token: ${{ secrets.API_TOKEN_GITHUB }}
         path: 'target-repo'
 
-    - name: Clean entire zerotrust directory
+    - name: Clean and deploy
       run: |
         cd target-repo
+
+        echo "🧹 Cleaning existing zerotrust directory..."
         if [ -d "zerotrust" ]; then
-          echo "🧹 Cleaning entire zerotrust directory..."
           echo "Current contents:"
           ls -la zerotrust/ || true
-
-          # Remove all contents but keep the directory
           rm -rf zerotrust/*
           echo "✅ Cleaned all contents from zerotrust directory"
-
-          git config --local user.email "devops@racksync.com"
-          git config --local user.name "racksync"
-          git add -A
-          git status
-          if git diff --staged --quiet; then
-            echo "ℹ️ No changes to commit (directory was already clean)"
-          else
-            git commit -m "🧹 Clean zerotrust directory for fresh update
-
-          - Removed all existing contents before fresh deployment
-          - Preparing for consolidated universal add-on deployment
-          - Supports all architectures: armhf, armv7, aarch64, amd64, i386"
-            git push
-            echo "✅ Successfully committed cleanup"
-          fi
         else
-          echo "ℹ️ zerotrust directory not found, will be created during deployment"
+          mkdir -p zerotrust
+          echo "✅ Created zerotrust directory"
         fi
 
-  push-zerotrust:
-    needs: clean-target-directory
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v4
+        echo "📁 Copying zerotrust add-on files..."
+        cp -r ../zerotrust/* zerotrust/
+        echo "✅ Copied zerotrust add-on files"
 
-    - name: Push zerotrust
-      uses: dmnemec/copy_file_to_another_repo_action@main
-      env:
-        API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
-      with:
-        source_file: "zerotrust/"
-        destination_repo: 'racksync/hass-addons-suite'
-        destination_folder: 'zerotrust/'
-        user_email: 'devops@racksync.com'
-        user_name: 'racksync'
-        commit_message: '✨ Update zerotrust universal add-on from consolidated codebase'
+        echo "📄 Copying repository README..."
+        cp ../README.md zerotrust/
+        echo "✅ Copied repository README"
 
-  push-zerotrust-readme:
-    needs: clean-target-directory
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v4
+        echo "🔍 Verifying copied contents:"
+        ls -la zerotrust/
 
-    - name: Push README.md
-      uses: dmnemec/copy_file_to_another_repo_action@main
-      env:
-        API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
-      with:
-        source_file: "README.md"
-        destination_repo: 'racksync/hass-addons-suite'
-        destination_folder: 'zerotrust/'
-        user_email: 'devops@racksync.com'
-        user_name: 'racksync'
-        commit_message: '📝 Update zerotrust documentation from consolidated codebase'
+    - name: Commit and push changes
+      run: |
+        cd target-repo
+        git config --local user.email "devops@racksync.com"
+        git config --local user.name "racksync"
+
+        git add -A
+        git status
+
+        if git diff --staged --quiet; then
+          echo "ℹ️ No changes to commit"
+        else
+          echo "📝 Committing changes..."
+          git commit -m "🚀 Deploy zerotrust universal add-on
+
+          ✨ Features:
+          - Universal architecture support (armhf, armv7, aarch64, amd64, i386)
+          - Zero Trust security through Cloudflare
+          - Token-based and advanced configuration options
+          - Complete documentation and troubleshooting guides
+
+          🧹 Changes:
+          - Cleaned legacy add-on files
+          - Fresh deployment of consolidated add-on
+          - Updated documentation and configuration
+
+          🤖 Generated with [Claude Code](https://claude.com/claude-code)
+          Co-Authored-By: Claude <noreply@anthropic.com>"
+
+          echo "📤 Pushing to main branch..."
+          git push -u origin HEAD:main
+          echo "✅ Successfully deployed to hass-addons-suite!"
+        fi
