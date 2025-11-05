@@ -1,2 +1,0 @@
-# This file is used for GitHub workflow cleanup operations
-# It serves as a placeholder when we need to clean up legacy directories
