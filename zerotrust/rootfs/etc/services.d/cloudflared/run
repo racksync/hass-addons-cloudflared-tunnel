@@ -1,5 +1,8 @@
 #!/usr/bin/with-contenv bashio
 
+# Enable strict error handling
+set -e
+
 TOKEN=$(bashio::config 'token')
 PROTOCOL=$(bashio::config 'protocol')
 METRICS_ENABLED=$(bashio::config 'metrics_enabled')
@@ -33,6 +36,21 @@ fi
 
 mkdir -p /root/.cloudflared/
 
+# Validate configuration before starting
+if bashio::config.true 'config'; then
+    if [[ ! -f /ssl/config.yaml ]]; then
+        bashio::log.fatal "Config mode enabled but /ssl/config.yaml not found!"
+        bashio::log.fatal "Please upload your Cloudflare tunnel config.yaml to /ssl/ directory"
+        exit 1
+    fi
+else
+    if [[ -z "$TOKEN" ]]; then
+        bashio::log.fatal "No token provided and config mode is disabled!"
+        bashio::log.fatal "Please provide either a tunnel token or enable config mode with a config.yaml file"
+        exit 1
+    fi
+fi
+
 
 if bashio::config.true 'no_autoupdate'; then
    NOUPDATE="--no-autoupdate"
@@ -44,9 +62,14 @@ PROTOCOL_FLAG="--protocol $PROTOCOL"
 
 if bashio::config.true 'config'; then
     bashio::log.info "Fetching tunnel data from config.yaml 🔧"
-    exec cp -Rv /ssl/config.yaml /root/.cloudflared/
+    if ! cp -Rv /ssl/config.yaml /root/.cloudflared/; then
+        bashio::log.fatal "Failed to copy config.yaml from /ssl/"
+        exit 1
+    fi
+    bashio::log.info "Starting cloudflared with config file"
     exec cloudflared tunnel $PROTOCOL_FLAG $NOUPDATE $METRICS_FLAG --config /root/.cloudflared/config.yaml run
 else
     bashio::log.info "Fetching tunnel data from Token! 🔑"
-    exec cloudflared tunnel $PROTOCOL_FLAG $NOUPDATE $METRICS_FLAG run --token $TOKEN
+    bashio::log.info "Starting cloudflared with token authentication"
+    exec cloudflared tunnel $PROTOCOL_FLAG $NOUPDATE $METRICS_FLAG run --token "$TOKEN"
 fi

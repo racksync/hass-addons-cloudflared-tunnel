@@ -1,5 +1,23 @@
 ### CHANGELOG
 
+## 2026.2.1
+### Enhancement
+  - Add Docker HEALTHCHECK directive for automatic service monitoring
+  - Add Home Assistant labels (io.hass.*) for better integration
+  - Add watchdog support for service health monitoring
+  - Improve error handling with strict mode (set -e) in run script
+  - Add input validation for token and config file with clear error messages
+  - Optimize Dockerfile build process for better caching
+  - Add cleanup step to reduce image size
+### Security
+  - Set /config and /ssl directories to read-only in AppArmor profile
+  - Improve AppArmor capability definitions following least privilege principle
+  - Add proper signal handling in AppArmor profile
+### Documentation
+  - Add comprehensive testing documentation
+  - Improve inline script comments
+  - Follow Home Assistant add-on best practices
+
 ## 2025.12.1
 ### Feature
   - **NEW**: Native Cloudflared tunnel metrics monitoring
